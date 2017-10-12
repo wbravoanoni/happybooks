@@ -1,0 +1,52 @@
+/*****************  LOGIN  *******************/
+
+
+#panelPrincipal{
+    background: url('../imagenes/Panel/imagen_panel.jpg');
+    background-attachment: fixed;
+}
+
+.form-signin-heading{
+
+    color:white;
+}
+
+.form-signin{
+
+    padding-top: 50px;
+}
+
+#principal form legend{
+
+    color:white;
+}
+
+#principal .form-group input{
+
+border-radius: 30px;
+}
+
+.form-group{
+
+        margin-bottom: 20px;
+}
+.checkbox{
+    margin-top: 25px;
+    color: white;
+}
+
+.marca{
+margin-top: 300px;
+color: white;
+text-align: center;
+}
+
+.col-centrar{
+    
+    float: none !important;
+    margin: 0 auto;
+    
+}
+
+
+/***************************************************
