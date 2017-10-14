@@ -111,7 +111,7 @@ $this->db->update('usuario',$campos);
 
 }
 
-public function revisarIntentos()
+public function revisarIntentos($email)
 {
 
 $this->db->select('intentos');
@@ -120,15 +120,10 @@ $this->db->where('nomUsuario',$email);
 $this->db->limit(1);
 
 $r=$this->db->get();
-//$intentos->result();
+$row=$r->row();
 
-foreach ($r->result() as $row) {
-$resultado=$row->intentos;
-}
-
-return $resultado;
-
-
+$intentos=$row->intentos;
+return $intentos;
 }
 
 

@@ -8,13 +8,16 @@ redirect(base_url());
 <link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
 
 <script src='https://www.google.com/recaptcha/api.js'></script>
+
+<script src='js/script.js'></script>
+
 <body id="panelPrincipal" style="margin-top:20px">
 
    <div id="principal" class="container">
      
        <h2 class="tituloPanel form-signin-heading text-center">Panel de configuración</h2>
 
-     <form id="cosa" class="form-signin col-md-6 col-centrar" method="POST" action="<?php echo base_url()?>Clogin/ingresar">
+     <form id="cosa" class="form-signin col-md-6 col-centrar" method="POST" action="<?php echo base_url()?>Clogin/ingresar" onsubmit="return get_action(this)">
             
           <legend>Iniciar sesión Veda C</legend>
     
@@ -38,10 +41,9 @@ redirect(base_url());
      <a id="link-control" class="pull-right" href="<?php echo base_url()?>">Regresar</a>
 
 <?php
-if(isset($capcha)){
-echo "Bandera".$capcha;
-}
-?>
+if(($this->session->userdata('s_capcha')==1)){?>
+<div class="g-recaptcha" data-sitekey="6Le47DMUAAAAAOmEiFqWYTdvSLmEHBrs6RH9tLVA"></div>
+<?php } ?>
 
 
 
