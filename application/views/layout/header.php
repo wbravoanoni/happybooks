@@ -1,3 +1,4 @@
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -276,7 +277,8 @@ if(!$this->session->userdata('s_idUsuario')){
 
                 <p>
             <?php echo $this->session->userdata('s_usuario');?> - <?php echo $this->session->userdata('s_profesion');?>
-                  <small>Member since Nov. 2012</small>
+            <small>Miembro desde <?php echo $this->session->userdata('s_ingreso');?></small>
+
                 </p>
               </li>
               <!-- Menu Body -->

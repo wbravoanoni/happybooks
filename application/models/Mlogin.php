@@ -18,7 +18,24 @@ $contrasena = $data['pass'];
 if($this->existeCorreo($correo)==1)
 
   {
-	$this->db->select('a.idUsuario,a.correo,a.clave,b.nombre,b.appaterno,b.apmaterno,c.nombreTipo');
+	$this->db->select('a.idUsuario,a.correo,a.clave,b.nombre,b.appaterno,b.apmaterno,c.nombreTipo,
+		DATE_FORMAT(fechaIngreso, "%Y") as anio,
+		case DATE_FORMAT(fechaIngreso, "%M")  
+		when "January" then "Ene"
+		when "February" then "Feb"
+		when "March" then "Mar"
+		when "April" then "Abr"
+		when "May" then "May"
+		when "June" then "Jun"
+		when "July" then "Jul"
+		when "August" then "Ago"
+		when "September" then "Sep"
+		when "October" then "Oct"
+		when "November" then "Nov" 
+		when "December" then "Dic"  
+		end as mes
+');
+
 	$this->db->from('usuario a');
 	$this->db->join('persona b','a.idPersona=b.idPersona');
 	$this->db->join('zz_login_tipo c','c.idLogin=a.tipo');
@@ -36,7 +53,8 @@ if($resultado->num_rows()==1){
 		$s_usuario=array(
 		's_idUsuario'   => $r->idUsuario,
 		's_usuario'     => $r->nombre." ".$r->appaterno,
-		's_profesion'   => $r->nombreTipo
+		's_profesion'   => $r->nombreTipo,
+		's_ingreso'     => $r->mes.". ".$r->anio
 		);
 
 		$this->session->set_userdata($s_usuario);
