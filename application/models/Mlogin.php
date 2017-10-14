@@ -12,13 +12,17 @@ function __construct()
 
 public function ingresar($data){
 
-$usuario    = $data['user'];
+$correo    = $data['user'];
 $contrasena = $data['pass'];
 
-	$this->db->select('idUsuario,nomUsuario,clave,nombre,appaterno,apmaterno,profesion');
+if($this->existeCorreo($correo)==1)
+
+  {
+	$this->db->select('a.idUsuario,a.correo,a.clave,b.nombre,b.appaterno,b.apmaterno,c.nombreTipo');
 	$this->db->from('usuario a');
 	$this->db->join('persona b','a.idPersona=b.idPersona');
-	$this->db->where('nomUsuario',$usuario);
+	$this->db->join('zz_login_tipo c','c.idLogin=a.tipo');
+	$this->db->where('correo',$correo);
 	$this->db->where('clave',$contrasena);
 	$this->db->limit(1);
 
@@ -32,18 +36,21 @@ if($resultado->num_rows()==1){
 		$s_usuario=array(
 		's_idUsuario'   => $r->idUsuario,
 		's_usuario'     => $r->nombre." ".$r->appaterno,
-		's_profesion'   => $r->profesion
+		's_profesion'   => $r->nombreTipo
 		);
 
 		$this->session->set_userdata($s_usuario);
-		$this->reiniciarIntentos($usuario);
+		$this->reiniciarIntentos($correo);
 	return 1;
 }else{
 
-	$this->insertarIntento($usuario);
+	$this->insertarIntento($correo);
 	return 0;
 }
 
+ }else{
+ 	redirect(base_url().'?error=1');
+ }
 }
 
 public function insertarHistorial($data){
@@ -69,11 +76,11 @@ if($this->db->insert('zz_history_login',$data))
 }
 
 
-public function insertarIntento($email){
+public function insertarIntento($correo){
 
 $this->db->select('intentos');
 $this->db->from('usuario');
-$this->db->where('nomUsuario',$email);
+$this->db->where('correo',$correo);
 $this->db->limit(1);
 
 $r=$this->db->get();
@@ -90,7 +97,7 @@ $resultado=$resultado+1;
 
 $campos=array('intentos'=>$resultado);
 
-$this->db->where('nomUsuario', $email);
+$this->db->where('nomUsuario', $correo);
 $this->db->update('usuario',$campos);
 
 }else if($resultado==3){
@@ -102,21 +109,21 @@ $this->db->update('usuario',$campos);
 
 }
 
-public function reiniciarIntentos($email){
+public function reiniciarIntentos($correo){
 
 $campos=array('intentos'=>0);
 
-$this->db->where('nomUsuario', $email);
+$this->db->where('correo', $correo);
 $this->db->update('usuario',$campos);
 
 }
 
-public function revisarIntentos($email)
+public function revisarIntentos($correo)
 {
 
 $this->db->select('intentos');
 $this->db->from('usuario');
-$this->db->where('nomUsuario',$email);
+$this->db->where('correo',$correo);
 $this->db->limit(1);
 
 $r=$this->db->get();
@@ -127,7 +134,25 @@ return $intentos;
 }
 
 
+public function existeCorreo($correo)
 
+	{
+		$this->db->select('correo');
+		$this->db->from('usuario a');
+		$this->db->where('correo',$correo);
+		$this->db->limit(1);
+
+		$resultado=$this->db->get();
+
+		if($resultado->num_rows()>0)
+		{
+		return 1;
+		}
+		else
+		{
+		return 0;
+		}
+	}
 
 }
 
