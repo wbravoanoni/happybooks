@@ -59,6 +59,31 @@ $this->db->insert('usuario',$campos);
 
  	$idPersona = $datos['idUsuario'];
 
+	date_default_timezone_set ('America/Santiago');
+	$fecha = date("Y-m-d");
+	$fecha 	   = date("Y-m-d H:i:s");
+
+
+ 	if($datos['utxtpass']==""){
+
+ 	$usuario=array(
+	'correo'    		=> $datos['utxtEmail'],
+	'tipo'      		=> $datos['ucboTipo'],
+	'fechaActualizacion'=> $fecha,
+	'activo'			=> $datos['ucboEstado']
+	);	
+
+ 	}else{
+
+$usuario=array(
+	'correo'    		=> $datos['utxtEmail'],
+	'clave'     		=> $datos['utxtpass'],
+	'tipo'      		=> $datos['ucboTipo'],
+	'fechaActualizacion'=> $fecha
+	);
+
+ 	}
+
 $persona=array(
 	'nombre'    => $datos['utxtNombre'],
 	'appaterno' => $datos['utxtApPaterno'],
@@ -66,13 +91,6 @@ $persona=array(
 	'idPais'    => $datos['cboPaises2'],
 	'idCiudad'  => $datos['cboCiudades2'],
 	'fecnac'    => $datos['utxtNacimiento']
-	);
-
-$usuario=array(
-	'correo'    		=> $datos['utxtEmail'],
-	'clave'     		=> $datos['utxtpass'],
-	'tipo'      		=> $datos['ucboTipo'],
-	'fechaActualizacion'=> $fechaActualizacion
 	);
 
 $this->db->where('idPersona', $idPersona);

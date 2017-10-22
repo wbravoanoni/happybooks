@@ -67,7 +67,7 @@ if($resultado->num_rows()==1){
 }
 
  }else{
- 	redirect(base_url().'?error=1');
+ 	redirect(base_url().'Clogin?error=1');
  }
 }
 
@@ -108,14 +108,13 @@ foreach ($r->result() as $row) {
 $resultado=$row->intentos;
 }
 
-
 if($resultado<3 ){
 
 $resultado=$resultado+1;	
 
 $campos=array('intentos'=>$resultado);
 
-$this->db->where('nomUsuario', $correo);
+$this->db->where('correo', $correo);
 $this->db->update('usuario',$campos);
 
 }else if($resultado==3){
@@ -158,6 +157,7 @@ public function existeCorreo($correo)
 		$this->db->select('correo');
 		$this->db->from('usuario a');
 		$this->db->where('correo',$correo);
+		$this->db->where('activo',1);
 		$this->db->limit(1);
 
 		$resultado=$this->db->get();

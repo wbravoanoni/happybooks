@@ -72,8 +72,13 @@ if($lastId>0){
 public function actualizarUsuarios(){
 
 
-$correo=$this->input->post('utxtEmail');
-$idUsuario=$this->getIdUsuarios($correo);
+$correo    = $this->input->post('utxtEmail');
+$idUsuario = $this->getIdUsuarios($correo);
+$pass      = $this->input->post('utxtpass');
+
+if($pass!="Nada"){
+$datos['utxtpass']       = $pass;
+}
 
 $datos['idUsuario']      = $idUsuario;
 $datos['utxtNombre']     = $this->input->post('utxtNombre');
@@ -83,7 +88,7 @@ $datos['utxtNacimiento'] = $this->input->post('utxtNacimiento');
 $datos['cboPaises2']     = $this->input->post('cboPaises2');
 $datos['cboCiudades2']   = $this->input->post('cboCiudades2');
 $datos['utxtEmail']      = $correo;
-$datos['utxtpass']       = $this->input->post('utxtpass');
+//$datos['utxtpass']       = $this->input->post('utxtpass');
 $datos['utxtpass2']      = $this->input->post('utxtpass2');
 $datos['ucboTipo']       = $this->input->post('ucboTipo');
 $datos['ucboEstado']     = $this->input->post('ucboEstado');

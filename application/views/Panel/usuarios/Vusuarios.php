@@ -1,3 +1,9 @@
+<style>
+#modalBorrar {
+	z-index: 1080 !important;
+}
+</style>
+
 <h1 style="padding: 20px 0 20px 20px">Administrar Usuarios</h1>
 
 <div class="col-sm-10 col-lg-10 box box-primary" style="padding-top: 10px">
@@ -150,7 +156,7 @@
 
 
 <!-- Modal Actualizar Usuarios -->
-<div class="modal fade" id="modalActualizarUsuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div style="overflow-y: scroll;" class="modal fade" id="modalActualizarUsuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content" style="width: 350px;">
 
@@ -253,6 +259,7 @@
 			</div>
 
       <div class="modal-footer">
+      	 <button data-toggle="modal" data-target="#modalBorrar" title="Eliminar" type="button" class="btn btn-danger" id="mbtnEliminar" data-dismiss="modal"><i class="glyphicon glyphicon-trash"></i></button>
         <button type="button" class="btn btn-default" id="mbtnCerrarModalUpdate" data-dismiss="modal">Cancelar</button>
         <button type="submit" class="btn btn-info" id="mbtnUpdPersona">Actualizar</button>
       </div>
@@ -266,6 +273,49 @@
 </div>
 
 <!--Fin modal agregar usuarios-->
+
+
+
+<!-- Mini Modal Borrar-->
+<div class="modal fade" id="modalBorrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="width: 350px;">
+
+      <div class="modal-header bg-blue">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span><i class="glyphicon glyphicon-remove-circle"></i></button>
+        <h4 class="modal-title" id="myModalLabel">Eliminar Usuario</h4>
+      </div>
+
+      <div class="modal-body">
+	      <form id="agregarUsuarios" class="form-horizontal" action="<?php echo base_url()?>Cusuarios/guardarUsuarios" method="POST">
+	      	
+			<div class="box-body">
+<h1>¿Estas seguro?</h1>
+			</div>
+
+      <div class="modal-footer">
+<button type="button" class="btn btn-default" id="mbtnCerrarModaEliminarl" data-dismiss="modal">Cancelar</button>
+<button type="submit" class="btn btn-success" id="btnEliminarPersona">Eliminar</button>
+      </div>
+
+		  </form>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<!--Fin Mini Modal Borrar-->
+        
+<script>
+$('#mbtnCerrarModaEliminarl').click(function(){
+	//$('#modalActualizarUsuario').css("position","absolute");
+	$('#modalActualizarUsuario').modal('toggle');
+});
+</script>
+
+
+
 
 <script type="text/javascript">
 var baseurl="<?php echo base_url();?>";
