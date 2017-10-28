@@ -152,7 +152,7 @@
   </div>
 </div>
 
-<!--Fin modal agregar usuarios-->
+<!--Fin modal Actualizar usuarios-->
 
 
 <!-- Modal Actualizar Usuarios -->
@@ -258,8 +258,9 @@
 
 			</div>
 
+<!--onclick="selEliminar($('#utxtEmail').val())"-->
       <div class="modal-footer">
-      	 <button data-toggle="modal" data-target="#modalBorrar" title="Eliminar" type="button" class="btn btn-danger" id="mbtnEliminar" data-dismiss="modal"><i class="glyphicon glyphicon-trash"></i></button>
+      	 <button onclick="enviaCorreo($('#utxtEmail').val())" data-toggle="modal" data-target="#modalBorrar" title="Eliminar" type="button" class="btn btn-danger" id="mbtnEliminarUsuario" data-dismiss="modal"><i class="glyphicon glyphicon-trash"></i></button>
         <button type="button" class="btn btn-default" id="mbtnCerrarModalUpdate" data-dismiss="modal">Cancelar</button>
         <button type="submit" class="btn btn-info" id="mbtnUpdPersona">Actualizar</button>
       </div>
@@ -287,11 +288,14 @@
       </div>
 
       <div class="modal-body">
-	      <form id="agregarUsuarios" class="form-horizontal" action="<?php echo base_url()?>Cusuarios/guardarUsuarios" method="POST">
+	      <form id="eliminarUsuarios" class="form-horizontal" action="<?php echo base_url()?>Cusuarios/eliminarUsuariosController" method="POST">
 	      	
 			<div class="box-body">
-<h1>¿Estas seguro?</h1>
+ 				<h5>¿Está seguro de que desea eliminar permanentemente al siguiente usuario?</h5>
+ 	  <input id="emailEliminar" name="emailEliminar" type="text" readonly style="width: 300px;
+    border: 0;">
 			</div>
+		
 
       <div class="modal-footer">
 <button type="button" class="btn btn-default" id="mbtnCerrarModaEliminarl" data-dismiss="modal">Cancelar</button>

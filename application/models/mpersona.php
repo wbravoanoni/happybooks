@@ -64,7 +64,16 @@ $this->db->insert('usuario',$campos);
 	$fecha 	   = date("Y-m-d H:i:s");
 
 
- 	if($datos['utxtpass']==""){
+ 	if(isset($datos['utxtpass'])){
+
+ 	$usuario=array(
+	'correo'    		=> $datos['utxtEmail'],
+	'clave'     		=> $datos['utxtpass'],
+	'tipo'      		=> $datos['ucboTipo'],
+	'fechaActualizacion'=> $fecha
+	);
+
+ 	}else{
 
  	$usuario=array(
 	'correo'    		=> $datos['utxtEmail'],
@@ -73,16 +82,8 @@ $this->db->insert('usuario',$campos);
 	'activo'			=> $datos['ucboEstado']
 	);	
 
- 	}else{
-
-$usuario=array(
-	'correo'    		=> $datos['utxtEmail'],
-	'clave'     		=> $datos['utxtpass'],
-	'tipo'      		=> $datos['ucboTipo'],
-	'fechaActualizacion'=> $fecha
-	);
-
  	}
+
 
 $persona=array(
 	'nombre'    => $datos['utxtNombre'],
@@ -92,6 +93,7 @@ $persona=array(
 	'idCiudad'  => $datos['cboCiudades2'],
 	'fecnac'    => $datos['utxtNacimiento']
 	);
+
 
 $this->db->where('idPersona', $idPersona);
 $this->db->update('persona',$persona);
@@ -166,6 +168,57 @@ $this->db->limit(1);
 $query=$this->db->get();
 return $query->row();
 }
+
+public function getIdPersonaModel($correo){
+$this->db->select('idPersona');
+$this->db->from('usuario');
+$this->db->where('correo',$correo);
+$this->db->limit(1);
+
+$query=$this->db->get();
+return $query->row();
+}
+
+	public function eliminarUsuariosModel($datos)
+
+	{
+
+$correo       = $datos['email'];
+$idUsuario    = $datos['idUsuario'];
+
+$this->db->where('correo',$correo);
+$this->db->delete('usuario');
+
+if(!$this->db->affected_rows()) {
+    $result = 'Correo! ID ['.$correo.'] not found';
+} else {
+    $result = 'Success';
+
+$this->db->where('idPersona',$idUsuario);
+$this->db->delete('persona');
+
+}
+return $result;
+	}
+
+	public function eliminarPersonasModel($datos)
+
+	{
+
+$idUsuario = $datos['idUsuario'];
+
+$this->db->where('idPersona',$idUsuario);
+$this->db->delete('persona');
+
+if(!$this->db->affected_rows()) {
+    $result = 'Correo! ID ['.$correo.'] not found';
+} else {
+    $result = 'Success';
+}
+return $result;
+	}
+
+
 
 
 

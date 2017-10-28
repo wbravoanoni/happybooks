@@ -316,6 +316,7 @@ event.preventDefault();
 
 //Actualizar Usuarios
 
+
 $("#actualizarUsuarios").submit(function(event)
 
 {
@@ -344,6 +345,49 @@ event.preventDefault();
 });
 
 
+
+/*
+$("#mbtnEliminarUsuario").click(function(){
+
+$('#emailEliminar').val("Hola");
+
+});
+*/
+enviaCorreo=function(email)
+
+	{
+	$('#emailEliminar').val(email);
+	}
+
+
+//Eliminar Usuarios
+
+$("#eliminarUsuarios").submit(function(event)
+
+{
+event.preventDefault();
+
+	$.ajax({
+		beforeSend:function(){
+		//$("#caja").show();
+		},
+			url:$("#eliminarUsuarios").attr("action"),
+			type:$("#eliminarUsuarios").attr("method"),
+			data:$("#eliminarUsuarios").serialize(),
+			success:function(respuesta)
+		{
+		//alert(respuesta);
+		alert("Registro eliminado con exito");
+		$('#mbtnCerrarModaEliminarl').click();
+		location.reload();
+		},
+			error:function(){
+			alert("ERROR GENERAL DEL SISTEMA, INTENTE NUEVAMENTE");
+	}
+
+	});
+
+});
 
 
 

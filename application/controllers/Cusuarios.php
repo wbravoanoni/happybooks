@@ -76,6 +76,7 @@ $correo    = $this->input->post('utxtEmail');
 $idUsuario = $this->getIdUsuarios($correo);
 $pass      = $this->input->post('utxtpass');
 
+
 if($pass!="Nada"){
 $datos['utxtpass']       = $pass;
 }
@@ -88,8 +89,6 @@ $datos['utxtNacimiento'] = $this->input->post('utxtNacimiento');
 $datos['cboPaises2']     = $this->input->post('cboPaises2');
 $datos['cboCiudades2']   = $this->input->post('cboCiudades2');
 $datos['utxtEmail']      = $correo;
-//$datos['utxtpass']       = $this->input->post('utxtpass');
-$datos['utxtpass2']      = $this->input->post('utxtpass2');
 $datos['ucboTipo']       = $this->input->post('ucboTipo');
 $datos['ucboEstado']     = $this->input->post('ucboEstado');
 
@@ -131,19 +130,36 @@ $row=$row->idUsuario;
 return $row;
 }
 
+public function getIdPersona($correo){
+
+$row=$this->mpersona->getIdPersonaModel($correo);
+$row=$row->idPersona;
+return $row;
+}
+
 public function getPersonasEdad(){
 
 echo json_encode($this->mpersona->getPersonasEdadModel());
 
 }
-	public function listarUsuarios(){
+public function listarUsuarios(){
 
-	$this->load->view('layout/header');
-	$this->load->view('layout/menu');
-	$this->load->view('persona/VlistarUsuarios');
-	$this->load->view('layout/footer');
-	}
+$this->load->view('layout/header');
+$this->load->view('layout/menu');
+$this->load->view('persona/VlistarUsuarios');
+$this->load->view('layout/footer');
+}
 
+public function eliminarUsuariosController(){
 
+	$email 	   = $this->input->post('emailEliminar');
+	$idUsuario = $this->getIdPersona($email);
+
+$datos['email']         = $email;
+$datos['idUsuario']     = $idUsuario;
+
+echo json_encode($this->mpersona->eliminarUsuariosModel($datos));
+
+}
 
 }
