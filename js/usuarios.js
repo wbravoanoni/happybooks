@@ -300,10 +300,17 @@ event.preventDefault();
 			data:$("#agregarUsuarios").serialize(),
 			success:function(respuesta)
 		{
-		//alert(respuesta);
-		alert("Agregado con exito");
-		$('#mbtnCerrarModal').click();
-		location.reload();
+			if(respuesta!=2){
+
+			alert("Agregado con exito");
+			$('#mbtnCerrarModal').click();
+			location.reload();
+
+			}else{
+
+				$('#alertaCorreo').css('display','block');
+			}
+
 		},
 			error:function(){
 			alert("ERROR GENERAL DEL SISTEMA, INTENTE NUEVAMENTE");
@@ -388,9 +395,6 @@ event.preventDefault();
 	});
 
 });
-
-
-
 
 
 

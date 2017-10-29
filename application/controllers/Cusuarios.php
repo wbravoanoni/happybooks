@@ -64,12 +64,11 @@ if($lastId>0){
 	$this->mpersona->guardarUsuario($lastId,$param2);
 }
 
+}else{
+
+echo 2;
+
 }
-
-
-//echo "Entro al metodo guardar";
-//$this->load->view('persona/vpersona');
-
 
 	}
 
@@ -167,10 +166,7 @@ echo json_encode($this->mpersona->eliminarUsuariosModel($datos));
 
 }
 
-public function existeCorreoController(){
-
-	$correo 	   = $this->input->post('correo');
-//echo json_encode($this->mpersona->existeCorreoModel());
+public function existeCorreoController($correo){
 
 	$datos['correo']=$correo;
 

@@ -137,6 +137,13 @@
 		            	</select>
 		            </div>
 		        </div>
+
+		        
+				<div id="alertaCorreo" style="display:none" class="alert alert-danger" role="alert">
+					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					<span class="sr-only">Error:</span>
+					El correo ya se encuentra registrado
+				</div>
 			</div>
 
       <div class="modal-footer">

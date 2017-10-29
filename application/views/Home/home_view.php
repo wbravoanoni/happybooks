@@ -91,7 +91,7 @@ footer {
     
 </head>
    <h1>
-    <img src="<?php echo base_url()?>imagenes/home/books-bannr.jpg" width="100%" height="500px">
+    <img src="<?php echo base_url()?>imagenes/home/books-bannr.jpg" width="100%" height="400px">
     </h1> 
     
 <body>
