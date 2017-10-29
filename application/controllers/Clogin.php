@@ -105,7 +105,7 @@ if($this->session->userdata('s_capcha')==1)
 	public function logout()
 		{
 			$this->session->sess_destroy();
-			redirect(base_url().'Cusuarios');
+			redirect(base_url().'login');	
 		}
 
 

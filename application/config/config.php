@@ -23,8 +23,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
+
+if($_SERVER['HTTP_HOST']=='localhost' || $_SERVER['HTTP_HOST']=='127.0.0.1'){
+
 $config['base_url'] = 'http://127.0.0.1/happybooks_v2/';  
 
+}else{
+$config['base_url'] = 'http://happyreads.hol.es/';  
+}
 /*
 |--------------------------------------------------------------------------
 | Index File

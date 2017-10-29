@@ -219,6 +219,28 @@ return $result;
 	}
 
 
+public function existeCorreoModel($datos){
+
+$correo=$datos['correo'];
+
+$this->db->select('correo');
+$this->db->from('usuario');
+$this->db->where('correo',$correo);
+$query=$this->db->get();
+
+if($query->num_rows()>0){
+
+	return 1;
+
+}else{
+	return 0;
+}
+
+
+}
+
+
+
 
 
 

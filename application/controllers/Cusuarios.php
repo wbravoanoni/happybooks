@@ -52,7 +52,9 @@ $param2['cboTipo']    	= $this->input->post('cboTipo');
 $param2['cboEstado']    = $this->input->post('cboEstado');
 
 
-$lastId=$this->mpersona->guardarPersonas($param);
+if($this->existeCorreoController($param2['mtxtEmail'] )!=1){
+
+	$lastId=$this->mpersona->guardarPersonas($param);
 
 
 if($lastId>0){
@@ -61,6 +63,9 @@ if($lastId>0){
 
 	$this->mpersona->guardarUsuario($lastId,$param2);
 }
+
+}
+
 
 //echo "Entro al metodo guardar";
 //$this->load->view('persona/vpersona');
@@ -159,6 +164,19 @@ $datos['email']         = $email;
 $datos['idUsuario']     = $idUsuario;
 
 echo json_encode($this->mpersona->eliminarUsuariosModel($datos));
+
+}
+
+public function existeCorreoController(){
+
+	$correo 	   = $this->input->post('correo');
+//echo json_encode($this->mpersona->existeCorreoModel());
+
+	$datos['correo']=$correo;
+
+$resultado=$this->mpersona->existeCorreoModel($datos);
+
+return $resultado;
 
 }
 

@@ -28,15 +28,6 @@ $this->load->view('layout/footer');
 
 }
 
-public function VcharEdadInline(){
-
-$this->load->view('layout/header');
-$this->load->view('layout/menu');
-$this->load->view('VcharEdadInline');
-$this->load->view('layout/footer');
-
-}
-
 
 }
 
