@@ -88,15 +88,17 @@ return '<a href="#" class="btn btn-block btn-primary btn-sm" style="width:80%;" 
 "order":[[1, "asc" ]], // Nº de Columna que ordena
 });
 
-
 selUsuarios=function(idPersona, nombre, app, apm, email,fecnac,pass,idPais,idCiudad,activo,tipo)
 
 	{
+
 		$('#mhdnIdPersona').val(idPersona);
 		$('#utxtNombre').val(nombre);
 		$('#utxtApPaterno').val(app);
 		$('#utxtApMaterno').val(apm);
 		$('#utxtEmail').val(email);
+		$('#utxtEmail2').val(email);
+		
 		$('#utxtNacimiento').val(fecnac);
 		$('#utxtpass').val("Nada");
 		$('#utxtpass2').val("Nada");
@@ -105,6 +107,7 @@ selUsuarios=function(idPersona, nombre, app, apm, email,fecnac,pass,idPais,idCiu
 		$("#ucboEstado").val(activo);
 
 		$("#cboPaises2").val(idPais);
+
 		cargarPaises(idCiudad);
 	};
 
@@ -338,10 +341,18 @@ event.preventDefault();
 			data:$("#actualizarUsuarios").serialize(),
 			success:function(respuesta)
 		{
-		//alert(respuesta);
-		alert("Actualizado Con exito");
-		$('#mbtnCerrarModalUpdate').click();
-		location.reload();
+			if(respuesta!=2){
+
+			//alert(respuesta);
+			alert("Actualizado Con exito");
+			$('#mbtnCerrarModalUpdate').click();
+			location.reload();
+
+			}else{
+
+				$('#alertaCorreo2').css('display','block').fadeOut(8000);
+			}
+
 		},
 			error:function(){
 			alert("ERROR GENERAL DEL SISTEMA, INTENTE NUEVAMENTE");

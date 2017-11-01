@@ -65,7 +65,7 @@ if($lastId>0){
 }
 
 }else{
-
+//El Correo Existe
 echo 2;
 
 }
@@ -76,10 +76,15 @@ echo 2;
 public function actualizarUsuarios(){
 
 
-$correo    = $this->input->post('utxtEmail');
-$idUsuario = $this->getIdUsuarios($correo);
-$pass      = $this->input->post('utxtpass');
 
+//$idUsuario = $this->getIdUsuarios($correo);
+$correo    = $this->input->post('utxtEmail');
+$correo2   = $this->input->post('utxtEmail2');
+
+if($correo==$correo2){
+
+$idUsuario = $this->input->post('mhdnIdPersona');
+$pass      = $this->input->post('utxtpass');
 
 if($pass!="Nada"){
 $datos['utxtpass']       = $pass;
@@ -97,6 +102,36 @@ $datos['ucboTipo']       = $this->input->post('ucboTipo');
 $datos['ucboEstado']     = $this->input->post('ucboEstado');
 
 $this->mpersona->actualizarPersona($datos);
+
+
+}elseif($this->existeCorreoController($correo )!=1){
+
+$idUsuario = $this->input->post('mhdnIdPersona');
+$pass      = $this->input->post('utxtpass');
+
+if($pass!="Nada"){
+$datos['utxtpass']       = $pass;
+}
+
+$datos['idUsuario']      = $idUsuario;
+$datos['utxtNombre']     = $this->input->post('utxtNombre');
+$datos['utxtApPaterno']  = $this->input->post('utxtApPaterno');
+$datos['utxtApMaterno']  = $this->input->post('utxtApMaterno');
+$datos['utxtNacimiento'] = $this->input->post('utxtNacimiento');
+$datos['cboPaises2']     = $this->input->post('cboPaises2');
+$datos['cboCiudades2']   = $this->input->post('cboCiudades2');
+$datos['utxtEmail']      = $correo;
+$datos['ucboTipo']       = $this->input->post('ucboTipo');
+$datos['ucboEstado']     = $this->input->post('ucboEstado');
+
+$this->mpersona->actualizarPersona($datos);
+
+}else{
+//El Correo Existe
+echo 2;
+
+}
+
 }
 
 public function getUsuariosController(){

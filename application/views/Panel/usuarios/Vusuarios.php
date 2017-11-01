@@ -46,8 +46,6 @@
 
       <div class="modal-body">
 	      <form id="agregarUsuarios" class="form-horizontal" action="<?php echo base_url()?>Cusuarios/guardarUsuarios" method="POST">
-	      	<!-- parametros ocultos -->
-	      	<input type="hidden" id="mhdnIdPersona">
 	      	
 			<div class="box-body">
 		        <div class="form-group">
@@ -174,6 +172,9 @@
 
       <div class="modal-body">
 	      <form id="actualizarUsuarios" class="form-horizontal" action="<?php echo base_url()?>Cusuarios/actualizarUsuarios" method="POST">
+
+	      	      	<!-- parametros ocultos -->
+	      	<input type="hidden" id="mhdnIdPersona" name="mhdnIdPersona">
 	      	
 			<div class="box-body">
 		        <div class="form-group">
@@ -224,7 +225,8 @@
 
 		         <div class="form-group">
 		            <label for="utxtEmail" class="col-sm-3 control-label">Email</label>
-		            <div class="col-sm-9"> 
+		            <div class="col-sm-9">
+		             <input id="utxtEmail2" name="utxtEmail2" type="hidden" readonly>
 		              <input id="utxtEmail" class="form-control" name="utxtEmail" type="email" minlength="3" maxlength="30" required="required">
 		            </div>
 		        </div>
@@ -261,6 +263,12 @@
 		            	</select>
 		            </div>
 		        </div>
+
+		        <div id="alertaCorreo2" style="display:none" class="alert alert-danger" role="alert">
+					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					<span class="sr-only">Error:</span>
+					El correo ya se encuentra registrado
+				</div>
 
 
 			</div>
