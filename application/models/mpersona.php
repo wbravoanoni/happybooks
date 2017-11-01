@@ -119,9 +119,28 @@ return 1;
 	}
 
 	public function getUsuariosPaisesModel()
+/*
+select a.nombrePais,count(b.ciudad) as total
+from paises a 
+inner join ciudades b on a.idPais=b.idPais
+where a.activo=1
+group by b.idPais
+having total>0;
+*/
 
 	{
-		$s = $this->db->order_by('nombrePais', 'ASC')->get_where('paises',array('activo'=>1));
+
+$this->db->select("a.idPais,a.nombrePais as nombrePais,count(b.ciudad) as total");
+$this->db->from("paises a ");
+$this->db->join('ciudades b', 'a.idPais=b.idPais');
+$this->db->where("a.activo",1);
+$this->db->group_by("b.idPais"); 
+$this->db->having('total>0'); 
+$this->db->order_by('nombrePais', 'ASC');
+
+
+		//$s = $this->db->order_by('nombrePais', 'ASC')->get_where('paises',array('activo'=>1));
+		$s=$this->db->get();
 		return $s->result();
 	}
 
