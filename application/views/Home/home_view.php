@@ -100,7 +100,7 @@ footer {
  <li><b><a href="#">Página principal</a></b></li>   
  <li><b><a href="#">Archivos</a></b></li> 
  <li><b><a href="#">Sobre mí</a></b></li>
- <li><b><a href="<?php echo base_url()?>panel">Configuración</a></b></li>
+ <li><b><a href="<?php echo base_url()?>login">Configuración</a></b></li>
 </ul>
 </div>
 </div>  

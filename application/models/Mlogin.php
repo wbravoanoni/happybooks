@@ -10,7 +10,7 @@ function __construct()
 	parent::__construct();
 }
 
-public function ingresar($data){
+public function ingresarModel($data){
 
 $correo    = $data['user'];
 $contrasena = $data['pass'];
@@ -63,11 +63,11 @@ if($resultado->num_rows()==1){
 }else{
 
 	$this->insertarIntento($correo);
-	return 0;
+	return 2;
 }
 
  }else{
- 	redirect(base_url().'Clogin?error=1');
+ 	redirect(base_url().'login?e=cD6r7gZp0XU');
  }
 }
 

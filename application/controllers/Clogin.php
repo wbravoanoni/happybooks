@@ -26,8 +26,6 @@ public function ingresar()
 	$data['pass']  = sha1($this->input->post('pass'));
 
 
-
-
 if($this->session->userdata('s_capcha')==1)
 
 {
@@ -49,15 +47,19 @@ if($this->session->userdata('s_capcha')==1)
 
 				//echo "Eres Humano";
 
-				$respuesta=$this->Mlogin->ingresar($data);
+				$respuesta=$this->Mlogin->ingresarModel($data);
 				if($respuesta==1)
 					{
 						$this->nuevoHistorial($this->session->userdata('s_idUsuario'));	
 						redirect(base_url().'panel');			
 					}
+				elseif($respuesta==2)
+					{
+						redirect(base_url().'login?e=cD6r7gZp0XU');
+					}
 				else
 					{
-						redirect(base_url().'Cusuarios?error=1');
+						redirect(base_url().'login?e=cD6r7gZp0XU');
 					}
 
 				}
@@ -69,10 +71,10 @@ if($this->session->userdata('s_capcha')==1)
 
 	}
 
-}else
+}else{
 
 
-	if($intentos=$this->Mlogin->revisarIntentos($data['user'])==2)
+	if($intentos=$this->Mlogin->revisarIntentos($data['user'])>2)
 
 			{
 				$s_usuario=array(
@@ -83,17 +85,22 @@ if($this->session->userdata('s_capcha')==1)
 			}
 
 
-{
-	$respuesta=$this->Mlogin->ingresar($data);
+	$respuesta=$this->Mlogin->ingresarModel($data);
 	if($respuesta==1)
 		{
 			$this->nuevoHistorial($this->session->userdata('s_idUsuario'));	
 			redirect(base_url().'panel');			
 		}
-	else
+		elseif($respuesta==2)
 		{
-			redirect(base_url().'Cusuarios?error=1');
+			redirect(base_url().'login?e=cD6r7gZp0XU');
 		}
+	    else
+		{
+			redirect(base_url().'login?e=cD6r7gZp0XU');
+		}
+
+
 
 }
 

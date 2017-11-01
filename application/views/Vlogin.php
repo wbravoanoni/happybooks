@@ -42,16 +42,15 @@ redirect(base_url());
 
 <?php
 if(($this->session->userdata('s_capcha')==1)){?>
-<div class="g-recaptcha" data-sitekey="6Le47DMUAAAAAOmEiFqWYTdvSLmEHBrs6RH9tLVA"></div>
+<div class="g-recaptcha" style="margin: 0 auto;display: table;margin-top: 25px;" data-sitekey="6Le47DMUAAAAAOmEiFqWYTdvSLmEHBrs6RH9tLVA"></div>
 <?php } ?>
-
 
 
     </form>
     </div>
 <br><br>
-    <?php if(isset($_GET['error'])){?>
-  <div class="alert alert-danger col-sm-4 col-centrar" role="alert"><?php echo "El elemento No Existe";?></div>
+    <?php if(isset($_GET['e']) && $_GET['e']=='cD6r7gZp0XU'){?>
+  <div class="alert alert-danger col-sm-4 col-centrar" style="margin-top: 0px;" role="alert"><?php echo "El elemento No Existe";?></div>
 <?php };?>
 
    <h5 class="marca"> © 2017 Online Login Form. All rights reserved | Design by HappyReads </h5>

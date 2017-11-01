@@ -171,7 +171,7 @@
       </div>
 
       <div class="modal-body">
-	      <form id="actualizarUsuarios" class="form-horizontal" action="<?php echo base_url()?>Cusuarios/actualizarUsuarios" method="POST">
+	      <form id="actualizarUsuarios" class="form-horizontal" action="<?php echo base_url()?>Cusuarios/actualizarUsuarios" method="POST" autocomplete="off">
 
 	      	      	<!-- parametros ocultos -->
 	      	<input type="hidden" id="mhdnIdPersona" name="mhdnIdPersona">
@@ -303,7 +303,7 @@
       </div>
 
       <div class="modal-body">
-	      <form id="eliminarUsuarios" class="form-horizontal" action="<?php echo base_url()?>Cusuarios/eliminarUsuariosController" method="POST">
+	      <form id="eliminarUsuarios" class="form-horizontal" action="<?php echo base_url()?>Cusuarios/eliminarUsuariosController" method="POST" autocomplete="off">
 	      	
 			<div class="box-body">
  				<h5>¿Está seguro de que desea eliminar permanentemente al siguiente usuario?</h5>
