@@ -67,7 +67,6 @@ if($lastId>0){
 }else{
 //El Correo Existe
 echo 2;
-
 }
 
 	}
@@ -209,6 +208,14 @@ $resultado=$this->mpersona->existeCorreoModel($datos);
 
 return $resultado;
 
+}
+
+public function existeCorreoController2(){
+$correo = $this->input->post('data');
+
+	$datos['correo']=$correo;
+
+	echo json_encode($this->mpersona->existeCorreoModel($datos));
 }
 
 }

@@ -249,10 +249,10 @@ $query=$this->db->get();
 
 if($query->num_rows()>0){
 
-	return 1;
+return $query->result();
 
 }else{
-	return 0;
+return false;
 }
 
 
