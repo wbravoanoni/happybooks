@@ -1056,3 +1056,309 @@ return '<a href="#" class="btn btn-block btn-primary btn-sm" style="width:80%;" 
 
 
 
+/*===================================================================================================
+=         							 Validar Actualizaciones    							       =
+===================================================================================================*/
+
+/*=============================================
+=            Validar Nombre 	            =
+=============================================*/
+
+$('#utxtNombre').focusout(function(){
+var tamanoNom=$('#utxtNombre').val().length;
+	
+
+if(tamanoNom<3 ){
+$('#utxtNombre').css("border-color","red");
+$('#ualertNombre').css("display","block");
+$('#ualertNombre').html("El nombre debe tener entre 3 a 20 caracteres.");
+}
+
+});
+
+$('#utxtNombre').keyup(function(){
+
+var tamanoNom=$('#utxtNombre').val().length;
+var nombre=$('#utxtNombre').val();
+var expresion = /^[a-zA-Z0-9]*$/;
+
+if(tamanoNom>20){
+$('#utxtNombre').css("border-color","red");
+$('#ualertNombre').css("display","block");
+$('#ualertNombre').html("El Nombre debe tener entre 3 a 20 caracteres");
+}else{
+
+if(!expresion.test(nombre)){
+$('#utxtNombre').css("border-color","red");
+$('#ualertNombre').css("display","block");
+$('#ualertNombre').html("El Nombre no debe tener caracteres especiales");
+}else{
+
+$('#utxtNombre').css("border-color","#d2d6de");
+$('#ualertNombre').css("display","none");
+}
+}
+
+
+});
+
+/*=====  End of Section Validar Nombre   ======*/
+
+
+/*=============================================
+=            Validar Ap. Paterno 	          =
+=============================================*/
+
+$('#utxtApPaterno').focusout(function(){
+var tamano=$('#utxtApPaterno').val().length;
+
+
+if(tamano<3 ){
+$('#utxtApPaterno').css("border-color","red");
+$('#ualertPaterno').css("display","block");
+$('#ualertPaterno').html("El ap. Paterno debe tener entre 3 a 20 caracteres.");
+}
+
+});
+
+$('#utxtApPaterno').keyup(function(){
+var tamano=$('#txtApPaterno').val().length;
+var paterno=$('#txtApPaterno').val();	
+var expresion = /^[a-zA-Z0-9]*$/;	
+
+if(tamano>20){
+$('#utxtApPaterno').css("border-color","red");
+$('#ualertPaterno').css("display","block");
+$('#ualertPaterno').html("El A. Paterno debe tener entre 3 a 20 caracteres");
+}else{
+
+if(!expresion.test(paterno)){
+$('#utxtApPaterno').css("border-color","red");
+$('#ualertPaterno').css("display","block");
+$('#ualertPaterno').html("El A. Paterno no debe tener caracteres especiales");
+}else{
+
+$('#utxtApPaterno').css("border-color","#d2d6de");
+$('#ualertPaterno').css("display","none");
+}
+}
+
+});
+
+/*=====  End of Section Ap. Paterno    ======*/
+
+
+/*=============================================
+=            Validar Ap. Materno 	          =
+=============================================*/
+
+$('#utxtApMaterno').focusout(function(){
+var tamano=$('#utxtApMaterno').val().length;	
+
+if(tamano<3 ){
+$('#utxtApMaterno').css("border-color","red");
+$('#ualertMaterno').css("display","block");
+$('#ualertMaterno').html("El ap. Materno debe tener entre 3 a 20 caracteres.");
+}
+
+});
+
+$('#utxtApMaterno').keyup(function(){
+var tamano=$('#utxtApMaterno').val().length;	
+var materno=$('#utxtApMaterno').val();	
+var expresion = /^[a-zA-Z0-9]*$/;	
+
+if(tamano>20){
+$('#utxtApMaterno').css("border-color","red");
+$('#ualertMaterno').css("display","block");
+$('#ualertMaterno').html("El ap. materno debe tener entre 3 a 20 caracteres.");
+}else{
+
+if(!expresion.test(materno)){
+$('#utxtApMaterno').css("border-color","red");
+$('#ualertMaterno').css("display","block");
+$('#ualertMaterno').html("El ap. materno no debe tener caracteres especiales.");
+}else{
+
+$('#utxtApMaterno').css("border-color","#d2d6de");
+$('#ualertMaterno').css("display","none");
+}
+}
+
+});
+
+
+/*=============================================
+=            Validar Email	          		 =
+=============================================*/
+
+$('#utxtEmail').focusout(function(){
+var tamano=$('#utxtEmail').val().length;	
+
+if(tamano<8 ){
+$('#utxtEmail').css("border-color","red");
+$('#ualertEmail').css("display","block");
+$('#ualertEmail').html("El email debe tener entre 8 a 40 caracteres.");
+}
+
+});
+
+$('#utxtEmail').keyup(function(){
+var tamano=$('#utxtEmail').val().length;	
+var email=$('#utxtEmail').val();	
+var expresion =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+
+if(tamano>40){
+$('#utxtEmail').css("border-color","red");
+$('#ualertEmail').css("display","block");
+$('#ualertEmail').html("El ap. materno debe tener entre 8 a 40 caracteres.");
+}else{
+
+if(!expresion.test(email)){
+$('#utxtEmail').css("border-color","red");
+$('#ualertEmail').css("display","block");
+$('#ualertEmail').html("El formato del email no es el correcto.");
+}else{
+
+$('#utxtEmail').css("border-color","#d2d6de");
+$('#ualertEmail').css("display","none");
+}
+}
+
+});
+
+/*===========================================
+=            Section contrasenas           =
+===========================================*/
+
+
+$('#utxtpass').focusout(function(){
+
+	if($('#utxtpass').val()!="Nada"){
+var tamano=$('#utxtpass').val().length;	
+
+if(tamano<6 ){
+$('#utxtpass').css("border-color","red");
+$('#ualertPass').css("display","block");
+$('#ualertPass').html("La contraseña debe tener entre 6 a 20 caracteres.");
+}
+}
+});
+
+$('#utxtpass').keyup(function(){
+
+if($('#utxtpass').val()!="Nada"){
+
+var tamano=$('#utxtpass').val().length;	
+var pass=$('#utxtpass').val();
+var pass2=$('#utxtpass2').val();
+	
+var expresion =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+
+if(tamano>12){
+$('#utxtpass').css("border-color","red");
+$('#ualertPass').css("display","block");
+$('#ualertPass').html("La contraseña debe tener entre 6 a 20 caracteres.");
+}else{
+
+if(!expresion.test(pass)){
+$('#utxtpass').css("border-color","red");
+$('#ualertPass').css("display","block");
+$('#ualertPass').html("La contraseña debe tener una mayuscula y un número.");
+}
+else{
+
+$('#utxtpass').css("border-color","#d2d6de");
+$('#ualertPass').css("display","none");
+$('#ualertPass').html("...");
+}
+}
+
+}else{
+$('#utxtpass').css("border-color","#d2d6de");
+$('#ualertPass').css("display","none");
+$('#ualertPass').html("...");
+	
+}
+
+});
+
+//Validar Contraseñas iguales
+
+$('#utxtpass2').keyup(function(){
+var pass=$('#utxtpass').val();
+var pass2=$('#utxtpass2').val();
+
+if(pass!=pass2){
+	$('#utxtpass2').css("border-color","red");
+	$('#ualertPass2').css("display","block");
+	$('#ualertPass2').html("La contraseña deben ser iguales.");
+}else{
+	$('#utxtpass2').css("border-color","#d2d6de");
+	$('#ualertPass2').css("display","none");
+	$('#ualertPass2').html("...");
+
+}
+});
+
+/*=============================================
+=            Section Validar BOX            =
+=============================================*/
+
+$('#utxtNacimiento').focusout(function(){
+
+	if($(this).val()==""){
+	$('#utxtNacimiento').css("border-color","red");
+	$('#ualertNacimiento').css("display","block");
+	$('#ualertNacimiento').html("Selecione una fecha de nacimiento.");
+}else{
+	$('#utxtNacimiento').css("border-color","#d2d6de");
+	$('#ualertNacimiento').css("display","none");
+	$('#ualertNacimiento').html("...");
+} 
+});
+
+$('#ucboPaises').focusout(function(){
+	if($(this).val()==""){
+	$('#ucboPaises').css("border-color","red");
+	$('#ualertPais').css("display","block");
+	$('#ualertPais').html("Selecione una pais.");
+}else{
+	$('#ucboPaises').css("border-color","#d2d6de");
+	$('#ualertPais').css("display","none");
+	$('#ualertPais').html("...");
+} 
+});
+
+$('#ucboTipo').focusout(function(){
+	if($(this).val()==""){
+	$('#ucboTipo').css("border-color","red");
+	$('#ualertTipo').css("display","block");
+	$('#ualertTipo').html("Selecione una tipo");
+}else{
+	$('#ucboTipo').css("border-color","#d2d6de");
+	$('#ualertTipo').css("display","none");
+	$('#ualertTipo').html("...");
+} 
+});
+
+$('#ucboEstado').focusout(function(){
+	if($(this).val()==""){
+	$('#ucboEstado').css("border-color","red");
+	$('#ualertEstado').css("display","block");
+	$('#ualertEstado').html("selecione una Tipo");
+}else{
+	$('#ucboEstado').css("border-color","#d2d6de");
+	$('#ualertEstado').css("display","none");
+	$('#ualertEstado').html("...");
+} 
+});
+/*=====  End of Section comment block  ======*/
+
+
+/*================= End of Section Validar Actualizaciones    =================*/
+
+
+
+
+

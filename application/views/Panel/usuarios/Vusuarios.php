@@ -181,7 +181,7 @@
 
       <div class="modal-header bg-blue">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span><i class="glyphicon glyphicon-remove-circle"></i></button>
-        <h4 class="modal-title" id="myModalLabel">Actualizar Usuarios</h4>
+        <h4 class="modal-title" id="myModalLabel">Actualizar Usuarios ble</h4>
       </div>
 
       <div class="modal-body">
@@ -223,7 +223,6 @@
 		            <label for="cboPaises2" class="col-sm-3 control-label">Pais</label>
 		            <div class="col-sm-9">
 		            	<select id="cboPaises2" class="form-control" name="cboPaises2" required="required">
-		            		<option value="">:: Elija</option>
 		            	</select>
 		            </div>
 		        </div>
@@ -232,7 +231,6 @@
 		            <label for="cboCiudades2" class="col-sm-3 control-label">Ciudad</label>
 		            <div class="col-sm-9">
 		            	<select id="cboCiudades2" class="form-control" name="cboCiudades2" required="required">
-		            		<option value="">:: Elija</option>
 		            	</select>
 		            </div>
 		        </div>
@@ -263,7 +261,6 @@
 				    <label for="ucboTipo" class="col-sm-3 control-label">Tipo</label>
 				    <div class="col-sm-9">
 				    	<select id="ucboTipo" class="form-control" name="ucboTipo" required="required">
-				    		<option value="">:: Elija</option>
 				    	</select>
 				    </div>
 				</div>
@@ -287,12 +284,22 @@
 
 			</div>
 
-<!--onclick="selEliminar($('#utxtEmail').val())"-->
       <div class="modal-footer">
       	 <button onclick="enviaCorreo($('#utxtEmail').val())" data-toggle="modal" data-target="#modalBorrar" title="Eliminar" type="button" class="btn btn-danger" id="mbtnEliminarUsuario" data-dismiss="modal"><i class="glyphicon glyphicon-trash"></i></button>
         <button type="button" class="btn btn-default" id="mbtnCerrarModalUpdate" data-dismiss="modal">Cancelar</button>
         <button type="submit" class="btn btn-info" id="mbtnUpdPersona">Actualizar</button>
       </div>
+
+
+     <div id="ualertNombre" style="display: none" class="list-group-item-danger" role="alert">...</div>
+	<div id="ualertPaterno" style="display: none" class="list-group-item-danger" role="alert">...</div>
+	<div id="ualertMaterno" style="display: none" class="list-group-item-danger" role="alert">...</div>
+	<div id="ualertEmail" style="display: none" class="list-group-item-danger" role="alert">...</div>
+	<div id="ualertPass" style="display: none" class="list-group-item-danger" role="alert">...</div>
+	<div id="ualertPass2" style="display: none" class="list-group-item-danger" role="alert">...</div>
+	<div id="ualertNacimiento" style="display: none" class="list-group-item-danger" role="alert">...</div>
+	<div id="ualertPais" style="display: none" class="list-group-item-danger" role="alert">...</div>
+	<div id="ualertTipo" style="display: none" class="list-group-item-danger" role="alert">...</div>
 
 		  </form>
       </div>
