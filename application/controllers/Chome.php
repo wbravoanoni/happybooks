@@ -19,6 +19,7 @@ header("location:".base_url('Chome/articulos/1'));
 public function articulos(){
 	
 $this->load->view('Home/layout/head');
+$this->load->view('Home/layout/navbar');
 
 $config['base_url']		= base_url()."Chome/articulos/";
 $config['total_rows']   = $this->Mlibros->total_libros();
@@ -62,6 +63,13 @@ $this->load->view('Home/layout/footer');
 public function vista2(){
 
 $this->load->view('Home/home_view2');
+
+}
+
+public function vista3(){
+$this->load->view('Home/layout/head');
+$this->load->view('Home/layout/navbar');
+$this->load->view('Home/layout/footer');
 
 }
 

@@ -19,7 +19,7 @@ public function TodosLibros($number_per_page){
 	$cadena=(int)($this->uri->segment(3,1));
 
 if(gettype($cadena)!="integer"){
-	echo gettype($cadena);
+	//echo gettype($cadena);
 exit;
 }
 
