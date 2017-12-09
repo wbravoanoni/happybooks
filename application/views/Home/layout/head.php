@@ -70,6 +70,20 @@ background:url(http://lh5.googleusercontent.com/-Sp-iHFztZdc/UVD89O9oM1I/AAAAAAA
 .resumenTextos{
 text-align: justify;
 }
+/*    Seccion Proximamente*/
+
+/*
+.imagen{
+  margin: 0 40px 40px 0;
+  width: 200px;
+  height: 300px;
+}
+.titProx{
+text-align: center;
+font-weight:bolder
+}
+*/
+
 </style>
 
 

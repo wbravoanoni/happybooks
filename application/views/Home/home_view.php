@@ -61,6 +61,32 @@ foreach ($resultado as $row)
 </div>
 
 
+<!--=====================================
+=         Section Proximamente          =
+======================================-->
+<!--
+<div class="col-md-offset-2 col-xs-8">
+<p class="titProx">Próximamente</p>
+<marquee scrolldelay="5" direction="left" onmouseover="stop()" onmouseout="start()" scrollamount="5">
+
+<div class="row">
+
+<a href="#"><img class="imagen" src="<?php echo base_url()?>imagenes/home/king.jpg"/>
+</a>
+
+<a href="#"><img class="imagen" src="<?php echo base_url()?>imagenes/home/king.jpg"/>
+</a>
+
+<a href="#"><img class="imagen" src="<?php echo base_url()?>imagenes/home/king.jpg"/>
+</a>
+
+</div>
+</marquee>
+</div>
+-->
+<!--====  End of Section Proximamente  ====-->
+
+
 
 
 
