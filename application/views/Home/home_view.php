@@ -28,10 +28,8 @@
 <div class="container">
 
 <?php
-$query = $this->db->query("SELECT nombre,autor,puntaje,resumen,imagen FROM libros");
 
-$contador=0;
-foreach ($query->result() as $row)
+foreach ($resultado as $row)
 {      
    
 ?>
@@ -47,69 +45,20 @@ foreach ($query->result() as $row)
                 $titulo=$array[1];
          ?>
          <fieldset class="val-fieldset"><span class="<?php echo $cadena;?>" title="<?php echo $titulo;?>"></span></fieldset><hr>
-         <p><?php echo $row->resumen;?></p>
+         <p class="resumenTextos"><?php echo resumenTextos(150,$row->resumen);?></p>
         <p><a href="#" class="btn btn-primary" role="button">Leer más</a></p>
       </div>
     </div>
   </div>
 
 <?php
-
 }
 ?>
 </div>
+
+<div class="text-xs-center" style="display:table;margin:0 auto;">
+  <?echo $pagination;?>
 </div>
-
-<?php
-
-function valorizacion($numero){
-
-if($numero>0 and $numero<5){
-$numero=0;
-
-}elseif($numero>=5 and $numero<10){
-$numero=5;
-
-}elseif($numero>=10 and $numero<15){
-$numero=10;
-
-}elseif($numero>=15 and $numero<20){
-$numero=15;
-
-}elseif($numero>=20 and $numero<25){
-$numero=20;
-
-}elseif($numero>=25 and $numero<30){
-$numero=25;
-
-}elseif($numero>=30 and $numero<35){
-$numero=30;
-
-}elseif($numero>=35 and $numero<40){
-$numero=35;
-
-}elseif($numero>=40 and $numero<45){
-$numero=40;
-
-}elseif($numero>=45 and $numero<50){
-$numero=45;
-
-}elseif($numero>=50){
-$numero=50;
-}
-
-$cadena="valoracion val-".$numero;
-
-$numero=$numero/10;
-
-$array=[$cadena,$numero];
-
-return $array;
-}
-
-
-
-?>
 
 
 

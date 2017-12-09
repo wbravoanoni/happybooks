@@ -67,6 +67,9 @@ background:url(http://lh5.googleusercontent.com/-Sp-iHFztZdc/UVD89O9oM1I/AAAAAAA
 
 /* FIN Estilo de las estrellas  */
 
+.resumenTextos{
+text-align: justify;
+}
 </style>
 
 
