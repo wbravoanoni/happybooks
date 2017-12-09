@@ -15,9 +15,16 @@
             <li><a href="#">Sobre mí</a></li>
             <li><a href="<?php echo base_url()?>login">Configuración</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
+<form class="navbar-form navbar-right">
+  <div class="col-lg-12">
+    <div class="input-group">
+    <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div>
+</form>
         </div>
       </div>
     </nav>

@@ -1,8 +1,7 @@
 
 <div id="logoPagina" style="margin: 8px;">
-    <img src="<?php echo base_url()?>imagenes/home/books-bannr.jpg" width="100%" height="400px">
+    <img src="<?php echo base_url()?>imagenes/home/books-bannr.jpg" width="100%">
 </div>
-
 
 <div class="container">
 
