@@ -49,4 +49,14 @@ $query = $this->db->query("SELECT nombre,autor,puntaje,resumen,imagen
 return $query->result();
 }
 
+	public function buscar($buscar,$inicio = FALSE, $cantidadregistro = FALSE)
+	{
+		$this->db->like("nombre",$buscar);
+		if ($inicio !== FALSE && $cantidadregistro !== FALSE) {
+			$this->db->limit($cantidadregistro,$inicio);
+		}
+		$consulta = $this->db->get("libros");
+		return $consulta->result();
+	}
+
 }

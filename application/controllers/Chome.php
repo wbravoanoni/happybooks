@@ -81,9 +81,30 @@ $this->load->view('Home/home_view2');
 public function vista3(){
 $this->load->view('Home/layout/head');
 $this->load->view('Home/layout/navbar');
+$this->load->view('Home/home_view3');
 $this->load->view('Home/layout/footer');
 
+
+
 }
+
+
+	public function mostrar()
+	{	
+		//valor a Buscar
+		$buscar = $this->input->post("buscar");
+		$numeropagina = $this->input->post("nropagina");
+		$cantidad = $this->input->post("cantidad");
+		
+		$inicio = ($numeropagina -1)*$cantidad;
+		$data = array(
+			"clientes" => $this->Mlibros->buscar($buscar,$inicio,$cantidad),
+			"totalregistros" => count($this->Mlibros->buscar($buscar)),
+			"cantidad" =>$cantidad
+			
+		);
+		echo json_encode($data);
+	}
 
 
 
