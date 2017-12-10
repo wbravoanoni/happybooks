@@ -14,15 +14,27 @@ class Chome extends CI_Controller {
 
 public function index(){
 
-header("location:".base_url('Chome/articulos/1'));
+header("location:".base_url('Chome/articulos/0'));
 }
 public function articulos(){
+
+if($this->input->post('texto')){
+
+$usuario_data = array(
+   'busqueda' => $this->input->post('texto'),
+);
+$this->session->set_userdata($usuario_data);
+
+	$filtro=$this->session->userdata('busqueda');
+}else{
+	$filtro=$this->session->userdata('busqueda');
+}
 	
 $this->load->view('Home/layout/head');
 $this->load->view('Home/layout/navbar');
 
 $config['base_url']		= base_url()."Chome/articulos/";
-$config['total_rows']   = $this->Mlibros->total_libros();
+$config['total_rows']   = $this->Mlibros->total_libros($filtro);
 $config['per_page']     = 6;
 $config['uri_segment']  = 3;
 $config['num_links']    = 5;
@@ -49,7 +61,7 @@ $config['num_tag_close'] = '</li>';
 $this->pagination->initialize($config);
 
 
-$resultado = $this->Mlibros->TodosLibros($config['per_page']);
+$resultado = $this->Mlibros->TodosLibros($config['per_page'],$filtro);
 $datos["resultado"]=$resultado;
 
 $datos['consulta']   = $resultado;

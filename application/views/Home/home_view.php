@@ -1,12 +1,10 @@
-
-<div id="logoPagina" style="margin: 8px;">
+<div id="logoPagina">
     <img src="<?php echo base_url()?>imagenes/home/books-bannr.jpg" width="100%">
 </div>
 
 <div class="container">
 
 <?php
-
 foreach ($resultado as $row)
 {      
    
@@ -63,7 +61,40 @@ foreach ($resultado as $row)
 </div>
 -->
 <!--====  End of Section Proximamente  ====-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<script>
+  
+//Busqueda con like
+
+$('#buscador').keyup(function(){
+
+
+
+var baseurl="<?php echo base_url();?>";
+
+  var text   = $('#buscador').val();
+  var length = $('#buscador').val().length;
+
+if(length>=1)
+
+  {
+    $.post(baseurl+"Chome/articulos",
+      {
+        texto: text
+      },
+
+    function(data){
+    });
+
+  }
+
+});
+
+
+
+
+</script>
 
 
 

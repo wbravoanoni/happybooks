@@ -100,6 +100,10 @@ font-weight:bolder
   margin:0 auto;
 }
 
+#logoPagina{
+margin: 8px;
+}
+
 </style>
 
 	
