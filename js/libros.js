@@ -51,7 +51,7 @@ filas+="<h3>"+item.nombre+"</h3>";
 filas+="<h4>"+item.autor+"</h4>";    
 filas+="<fieldset class='val-fieldset'><span class='"+cadena+"' title='"+titulo+"'></span></fieldset><hr>";
 filas+="<p class='resumenTextos'>"+resumen+"</p>";
-filas+="<p><a href='#'' class='btn btn-primary' role='button'>Leer más</a></p>";
+filas+="<p><a href='"+baseurl+"Chome/interno?id="+item.idLibros+"' class='btn btn-primary' role='button'>Leer más</a></p>";
 filas+="</div>";
 filas+="</div>";
 filas+="</div>";

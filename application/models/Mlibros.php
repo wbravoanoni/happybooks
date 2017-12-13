@@ -40,7 +40,7 @@ if(gettype($cadena)!="integer"){
 	//echo gettype($cadena);
 exit;
 }
-$query = $this->db->query("SELECT nombre,autor,puntaje,resumen,imagen 
+$query = $this->db->query("SELECT idLibros,nombre,autor,puntaje,resumen,imagen 
 						   FROM libros 
 						   WHERE activo=1 {$condicion}
 						   LIMIT ".$cadena.",".$number_per_page.""
@@ -58,5 +58,27 @@ return $query->result();
 		$consulta = $this->db->get("libros");
 		return $consulta->result();
 	}
+
+
+	public function getLibros($id)
+	
+	{
+		$this->db->select('nombre,autor,descripcion,puntaje,imagen,fechaCreacion,usuario');
+		$this->db->from('libros');
+		$this->db->where('idLibros',$id);
+		$this->db->where('activo',1);
+		$this->db->limit(1);
+
+		
+		$r = $this->db->get();
+		if($r->num_rows()>0){
+			return $r->row_array();
+		}else{
+			exit;
+		}
+
+
+	}
+
 
 }

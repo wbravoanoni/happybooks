@@ -27,6 +27,27 @@ $this->load->view('Home/home_view2');
 
 }
 
+public function interno(){
+
+if($_GET['id']){
+	
+$id=$_GET['id'];
+
+$array=$this->Mlibros->getLibros($id);
+
+$data=array("array"=>$array);
+
+$this->load->view('Home/layout/head');
+$this->load->view('Home/layout/navbar');
+$this->load->view('Home/interno',$data);
+$this->load->view('Home/layout/footer');	
+
+}
+
+
+
+}
+
 public function mostrar()
 {
 	//valor a Buscar
