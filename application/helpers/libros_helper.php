@@ -55,13 +55,21 @@ $texto        .= "...";
 return $texto;
 }
 
-function formatoFecha($fecha){
+function formatoFecha($fecha)
+{
+	if(isset($fecha))
 
-list($anio, $mes, $dia) = explode("-",$fecha); 
-$mesTexto=obtenerMes($mes);
-$cadena=$mesTexto." ".$dia.", ".$anio;
+	{
 
-return $cadena;
+	list($anio, $mes, $dia) = explode("-",$fecha); 
+	$mesTexto=obtenerMes($mes);
+	$cadena=$mesTexto." ".$dia.", ".$anio;
+
+	return $cadena;
+	}else{
+
+		return "Sin fecha";
+	}
 }
 
 function obtenerMes($mes){
