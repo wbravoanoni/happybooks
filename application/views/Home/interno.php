@@ -21,18 +21,13 @@
           <div class="blog-post">
             <h2 class="blog-post-title">Resumen y sinópsis de <?php echo $array['nombre']?></h2>
          
-            <p class="blog-post-meta"> <?php echo formatoFecha($array['fechaCreacion'])?> by 
-<a href="#">
-    <?php 
-    if(isset($array['usuario'])){
-        echo $array['usuario'];
-    }else{
-          echo "Anonimo";
-    }
-    ?>
-</a>
-            </p>
-            
+<p class="blog-post-meta"> <?php echo formatoFecha($array['fechaCreacion'])?> by 
+  <a href="#">
+  <?php 
+  if(isset($array['usuario'])){echo $array['usuario'];}else{echo "Anonimo";}?>
+  </a>
+</p>
+
 <div>
 	<?php echo $array['descripcion']?>
 </div>

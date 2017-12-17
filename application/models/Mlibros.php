@@ -8,46 +8,9 @@ function __construct()
 {
 	parent::__construct();
 }
-
-
-public function total_libros($filtro){
-
-if($filtro!=""){
-$condicion=" AND autor like '%{$filtro}%' ";
-}else{
-$condicion="";	
-}
-
-
-$number=$this->db->query("
-				SELECT COUNT(*) AS total 
-				FROM libros 
-				WHERE activo=1 ".$condicion)->row()->total;
-return intval($number);
-}
-
-public function TodosLibros($number_per_page,$filtro){
-
-if($filtro!=""){
-$condicion=" AND autor like '%{$filtro}%' ";
-}else{
-$condicion="";	
-}
-
-$cadena=(int)($this->uri->segment(3,0));
-
-if(gettype($cadena)!="integer"){
-	//echo gettype($cadena);
-exit;
-}
-$query = $this->db->query("SELECT idLibros,nombre,autor,puntaje,resumen,imagen 
-						   FROM libros 
-						   WHERE activo=1 {$condicion}
-						   LIMIT ".$cadena.",".$number_per_page.""
-						);
-
-return $query->result();
-}
+/*=============================================
+=         Busqueda de libros con like         =
+=============================================*/
 
 	public function buscar($buscar,$inicio = FALSE, $cantidadregistro = FALSE)
 	{
@@ -59,6 +22,12 @@ return $query->result();
 		return $consulta->result();
 	}
 
+
+/*=====  End Busqueda de libros con like    ======*/
+
+/*=============================================
+= 		Busca info para libros internos       =
+=============================================*/
 
 	public function getLibros($id)
 	
@@ -79,6 +48,9 @@ return $query->result();
 
 
 	}
+/*=====  End of Section libros internos   ======*/
+
+
 
 
 }
