@@ -14,7 +14,7 @@
 <fieldset class='val-fieldset'>
 	<?php $array2=valorizacion($array['puntaje']);?>
 
-	<span class='<?php echo $array2["0"]?>' title='<?php echo $array2["1"]?>'></span>
+	<span class='<?php echo $array2["0"]?>' title='<?php echo $array["puntaje"]/10?>'></span>
 </fieldset>
 <hr>
 

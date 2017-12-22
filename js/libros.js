@@ -49,7 +49,7 @@ filas+="<img class='imgLibros' src='"+baseurl+item.imagen+"' alt='...''>";
 filas+="<div class='caption'>";
 filas+="<h3>"+item.nombre+"</h3>";  
 filas+="<h4>"+item.autor+"</h4>";    
-filas+="<fieldset class='val-fieldset'><span class='"+cadena+"' title='"+titulo+"'></span></fieldset><hr>";
+filas+="<fieldset class='val-fieldset'><span class='"+cadena+"' title='"+item.puntaje/10+"'></span></fieldset><hr>";
 filas+="<p class='resumenTextos'>"+resumen+"</p>";
 filas+="<p><a href='"+baseurl+"Chome/interno?id="+item.idLibros+"' class='btn btn-primary' role='button'>Leer más</a></p>";
 filas+="</div>";
