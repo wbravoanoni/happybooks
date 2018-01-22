@@ -54,5 +54,5 @@ $route['panel'] = 'Clogin/panel';
 $route['login'] = 'Clogin';
 
 
-$route['404_override'] = '';
+$route['404_override'] = 'Chome/error';
 $route['translate_uri_dashes'] = FALSE;

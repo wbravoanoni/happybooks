@@ -150,7 +150,7 @@
 
       <div class="modal-footer">
 <button type="button" class="btn btn-default" id="mbtnCerrarModal" data-dismiss="modal">Cancelar</button>
-<button type="submit" class="btn btn-success" id="mbtnUpdPersona">Agregar</button>
+<button type="submit" class="btn btn-success" id="btnAgregarPersona">Agregar</button>
       </div>
 
 	<div id="alertNombre"  style="display: none" class="list-group-item-danger" role="alert">...</div>

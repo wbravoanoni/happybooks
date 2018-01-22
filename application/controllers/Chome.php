@@ -66,4 +66,12 @@ public function mostrar()
 }
 
 
+public function error(){
+$this->load->view('Home/layout/head');
+$this->load->view('Home/layout/navbar');
+$this->load->view("error2/index.php");
+$this->load->view('Home/layout/footer');
+}
+
+
 }

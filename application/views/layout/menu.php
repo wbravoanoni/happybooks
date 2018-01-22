@@ -35,7 +35,7 @@
           </a>
           <ul class="treeview-menu">
                  <li class="active"><a href="<?php echo base_url()?>Cusuarios"><i class="fa fa-circle-o"></i>Administrar Usuarios</a></li>
-            <li onclick="alert('Pagina temporalmente desactivada')"><a href="#"><i class="fa fa-circle-o"></i>Registrar Persona</a></li>
+            <li><a href="<?php echo base_url()?>Clibros"><i class="fa fa-circle-o"></i>Administrar Libros</a></li>
             <li onclick="alert('Pagina temporalmente desactivada')"><a href="#"><i class="fa fa-circle-o"></i>Listar user</a></li>
           </ul>
         </li>
