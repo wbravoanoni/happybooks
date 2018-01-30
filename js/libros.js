@@ -45,7 +45,13 @@ var resumen=resumenTextos(200,item.resumen);
 
 filas+="<div class='col-sm-6 col-md-4'>";
 filas+="<div class='thumbnail'>";
+
+if(item.imgExterna=0){
 filas+="<img class='imgLibros' src='"+baseurl+item.imagen+"' alt='...''>";
+}else if(item.imgExterna=1){
+filas+="<img class='imgLibros' src='"+item.imagen+"' alt='...''>";	
+}
+
 filas+="<div class='caption'>";
 filas+="<h3>"+item.nombre+"</h3>";  
 filas+="<h4>"+item.autor+"</h4>";    

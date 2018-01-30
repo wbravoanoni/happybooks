@@ -27,6 +27,13 @@ $this->load->view('Home/home_view2');
 
 }
 
+public function nosotros(){
+$this->load->view('Home/layout/head');
+$this->load->view('Home/prueba');
+$this->load->view('Home/layout/footer');
+
+}
+
 public function interno(){
 
 if($_GET['id']){

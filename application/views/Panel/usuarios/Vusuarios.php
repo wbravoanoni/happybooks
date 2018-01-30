@@ -181,7 +181,7 @@
 
       <div class="modal-header bg-blue">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span><i class="glyphicon glyphicon-remove-circle"></i></button>
-        <h4 class="modal-title" id="myModalLabel">Actualizar Usuarios ble</h4>
+        <h4 class="modal-title" id="myModalLabel">Actualizar Usuarios</h4>
       </div>
 
       <div class="modal-body">

@@ -86,6 +86,13 @@ if($this->uri->segment(1)=='cpersonas'){?>
 }
 ?>
 
+<?php
+ if($this->uri->segment(1)=='Clibros'){?>
+   <script src="<?php echo base_url()?>js/libros_panel.js"></script>
+<?php
+}
+?>
+
 
 
 </body>
