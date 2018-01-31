@@ -50,10 +50,20 @@ $data['myRange']          = $this->input->post('myRange');
 $data['estadoLibro']      = $this->input->post('estadoLibro');
 $data['imgExterna']      = $this->input->post('imgExterna');
 
+$lastId=$this->Mlibros->agregarLibros($data);
 
+//actualizarLLave($idLibro)
 
-	$resultado = $this->Mlibros->agregarLibros($data);
-	echo json_encode($resultado);
+if($lastId>0){
+
+$this->Mlibros->actualizarLLave($lastId);
+
+//echo json_encode($resultado);
+	//echo json_encode($resultado);
+}else{
+//	echo json_encode($resultado);
+}
+
 }
 
 
@@ -98,7 +108,8 @@ if($prueba==true){
 
 }else{
 //echo "Cadena Incorrecta";
-exit;
+	echo 2;
+//exit;
 }
 }
 

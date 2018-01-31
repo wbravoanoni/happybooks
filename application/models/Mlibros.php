@@ -114,7 +114,21 @@ public function agregarLibros($data){
 				'activo'	  => $data['estadoLibro']);
 
 		$this->db->insert('libros',$campos);
+		return $this->db->insert_id();
 }
+
+	public function actualizarLLave($idLibro){
+	//$cadena=base64_encode($idLibro."-"."cinthia");
+
+
+
+$cadena=base64_encode($idLibro."-"."cinthia");
+$libros=array('llave'=>$cadena);
+
+
+	$this->db->where('idLibros', $idLibro);
+	$this->db->update('libros',$libros);
+	}
 
 
 /*=========================================
