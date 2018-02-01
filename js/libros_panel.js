@@ -310,9 +310,7 @@ $('#uEstadoLibro').append('<option selected value="0">Desactivado</option>');
 }
 }
 
-	$("#reload").click(function(){
-		cargarLibros();
-	});
+
 
 
 //Actualizar Libros
@@ -351,6 +349,13 @@ event.preventDefault();
 	});
 
 });
+
+
+	$("#reload").click(function(){
+		cargarLibros();
+		cargarGeneros();
+		cargarUsuariosLibros()
+	});
 
 
 
