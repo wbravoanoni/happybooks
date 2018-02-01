@@ -32,8 +32,9 @@ function __construct()
 	public function getLibros($id)
 	
 	{
-		$this->db->select('nombre,autor,descripcion,puntaje,imagen,fechaCreacion,usuario');
-		$this->db->from('libros');
+		$this->db->select('a.nombre,a.autor,a.descripcion,a.puntaje,a.imagen,a.fechaCreacion,CONCAT_WS(" ",b.nombre,b.appaterno) as "usuario"');
+		$this->db->from('libros a');
+		$this->db->join('persona b','a.usuario=b.idPersona');
 		$this->db->where('idLibros',$id);
 		$this->db->where('activo',1);
 		$this->db->limit(1);
