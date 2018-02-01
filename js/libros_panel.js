@@ -26,7 +26,8 @@ $("#uMyRange").attr("value",this.value);
 
 cargarLibros();
 cargarGeneros();
-cargarUsuariosLibros()
+cargarUsuariosLibros();
+cargarAutoresLibros();
 
 
 
@@ -139,6 +140,7 @@ $("#cajaPuntos").find("div").html(enlaceI);
 		buscarUsuarioLibro(usuario);
 		buscarGeneroLibro(genero);
 		libroActivo(activo);
+		buscarAutoresLibro(autor);
 
 var sliderUpte = document.getElementById("uMyRange");
 sliderUpte.oninput = function(){
@@ -187,6 +189,26 @@ $.each(c,function(i,item){
 });
 });
 }
+
+
+function cargarAutoresLibros(){
+
+$('#cboautorLibro').html('');
+
+$.post(baseurl+"Clibros/cListarAutoresLibros",
+	{
+		activo: 1
+	},
+	function(data){
+var c = JSON.parse(data);
+$.each(c,function(i,item){
+	$('#cboautorLibro').append('<option value='+item.idAutores+'>'+item.autores+'</option>');
+});
+});
+}
+
+
+
 
 
 //Agregar Libros
@@ -294,6 +316,37 @@ function buscarUsuarioLibro(usuario)
 
 	}
 
+
+	function buscarAutoresLibro(nombreAutor)
+	{
+	$('#uAutorLibro').html('');
+	$.post(baseurl+"Clibros/cListarTodosAutores",
+		{
+	
+		},
+		function(data){
+		var c = JSON.parse(data);
+		$.each(c,function(i,item)
+
+		{
+
+		if(nombreAutor==item.autores)
+			{
+			$('#uAutorLibro').append('<option selected value='+item.idAutores+'>'+item.autores+'</option>');
+			}
+			else
+			{
+			$('#uAutorLibro').append('<option value='+item.idAutores+'>'+item.autores+'</option>');
+			}
+
+		});
+
+	});
+
+	}
+
+
+
 function libroActivo(activo){
 
 $('#uEstadoLibro').html('');
@@ -354,7 +407,8 @@ event.preventDefault();
 	$("#reload").click(function(){
 		cargarLibros();
 		cargarGeneros();
-		cargarUsuariosLibros()
+		cargarUsuariosLibros();
+		cargarAutoresLibros();
 	});
 
 

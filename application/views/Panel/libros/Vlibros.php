@@ -80,8 +80,10 @@
 
 		        <div class="form-group">
 		            <label for="autorLibro" class="col-sm-3 control-label">Autor</label>
-		            <div class="col-sm-9"> 
-		              <input id="autorLibro" class="form-control" name="autorLibro" type="text" value="" minlength="3" maxlength="20" required="required">
+		            <div class="col-sm-9">
+		            	<select  id="cboautorLibro" class="form-control" name="cboautorLibro" required="required">
+		            		<option value="">:: Elija</option>
+		            	</select>
 		            </div>
 		        </div>
 
@@ -200,10 +202,13 @@
 
 		        <div class="form-group">
 		            <label for="uAutorLibro" class="col-sm-3 control-label">Autor</label>
-		            <div class="col-sm-9"> 
-		              <input id="uAutorLibro" class="form-control" name="uAutorLibro" type="text" value="" minlength="3" maxlength="20" required="required">
+		            <div class="col-sm-9">
+		            	<select  id="uAutorLibro" class="form-control" name="uAutorLibro" required="required">
+		            		<option value="">:: Elija</option>
+		            	</select>
 		            </div>
 		        </div>
+
 
 		        <div class="form-group">
 		            <label for="uResumenLibro" class="col-sm-3 control-label">Resumen</label>

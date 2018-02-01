@@ -14,11 +14,17 @@ function __construct()
 
 	public function buscar($buscar,$inicio = FALSE, $cantidadregistro = FALSE)
 	{
-		$this->db->like("nombre",$buscar);
+		$this->db->like("a.nombre",$buscar);
 		if ($inicio !== FALSE && $cantidadregistro !== FALSE) {
 			$this->db->limit($cantidadregistro,$inicio);
 		}
-		$consulta = $this->db->get("libros");
+
+		$this->db->select('a.idLibros,a.nombre,CONCAT_WS(" ",b.nombre,b.apellido) as "autor",a.resumen,a.puntaje,a.imagen,a.imgExterna');
+
+		$this->db->from('libros a');
+		$this->db->join('autores b','a.autor=b.idAutores');
+
+		$consulta = $this->db->get();
 		return $consulta->result();
 	}
 
@@ -59,13 +65,14 @@ function __construct()
 
 	public function listarLibros()
 {
-	$this->db->select('a.idLibros,a.llave,a.nombre,a.autor,a.resumen,a.descripcion,
+	$this->db->select('a.idLibros,a.llave,a.nombre,CONCAT_WS(" ",d.nombre,d.apellido) as autor,a.resumen,a.descripcion,
 		a.puntaje,a.imagen,a.fechaCreacion,
 		CONCAT_WS(" ",b.nombre,b.appaterno) as "usuario"
 		,c.nombre as "genero",a.activo');
 	$this->db->from('libros a');
 	$this->db->join('persona b','a.usuario=b.idPersona');
 	$this->db->join('genero c','a.genero=c.idGenero');
+	$this->db->join('autores d','a.autor=d.idAutores');
 	$query=$this->db->get();
 	return $query->result();
 }
@@ -98,6 +105,14 @@ inner join genero c on a.genero=c.idGenero
 	return $query->result();
 }
 
+	public function mListarAutoresLibros($activo)
+{
+	$this->db->select('idAutores,CONCAT_WS(" ",nombre,apellido) as "autores"');
+	$this->db->from('autores');
+	$this->db->where("activo",$activo);
+	$query=$this->db->get();
+	return $query->result();
+}
 
 public function agregarLibros($data){
 
@@ -153,6 +168,18 @@ $libros=array('llave'=>$cadena);
 	$query=$this->db->get();
 	return $query->result();
 }
+
+
+	public function mListarTodosAutores()
+{
+	$this->db->select('idAutores,CONCAT_WS(" ",nombre,apellido) as "autores" ');
+	$this->db->from('autores');
+	$query=$this->db->get();
+	return $query->result();
+}
+
+
+
 
 
 public function mActualizarLibros($data){

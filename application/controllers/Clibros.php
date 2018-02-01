@@ -37,10 +37,17 @@ public function listarUsuariosLibros(){
 	echo json_encode($resultado);
 }
 
+public function cListarAutoresLibros(){
+
+	$activo    = $this->input->post('activo');
+	$resultado = $this->Mlibros->mListarAutoresLibros($activo);
+	echo json_encode($resultado);
+}
+
 public function agregarLibros(){
 
 $data['nombreLibro']      = $this->input->post('nombreLibro');
-$data['autorLibro']       = $this->input->post('autorLibro');
+$data['autorLibro']       = $this->input->post('cboautorLibro');
 $data['resumenLibro']     = $this->input->post('resumenLibro');
 $data['descripcionLibro'] = $this->input->post('descripcionLibro');
 $data['imagenLibro']	  = $this->input->post('imagenLibro');
@@ -76,6 +83,12 @@ public function cUsuariosCreadorResena(){
 public function cListarTodosGeneros(){
 	$idLibro   = $this->input->post('idLibro');
 	$resultado = $this->Mlibros->mListarTodosGeneros();
+	echo json_encode($resultado);
+}
+
+public function cListarTodosAutores(){
+	$idLibro   = $this->input->post('idLibro');
+	$resultado = $this->Mlibros->mListarTodosAutores();
 	echo json_encode($resultado);
 }
 
