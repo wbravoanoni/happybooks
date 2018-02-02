@@ -16,7 +16,13 @@ class Clogin extends CI_Controller {
 	public function index()
 
 	{
-		$this->load->view('Vlogin');
+
+		if($this->session->userdata('s_idUsuario')){
+			redirect(base_url().'panel');
+		}else{
+			$this->load->view('Vlogin');
+		}
+		
 	}
 
 public function ingresar()
