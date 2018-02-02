@@ -23,6 +23,7 @@ function __construct()
 
 		$this->db->from('libros a');
 		$this->db->join('autores b','a.autor=b.idAutores');
+		$this->db->where('a.activo',1);
 
 		$consulta = $this->db->get();
 		return $consulta->result();
