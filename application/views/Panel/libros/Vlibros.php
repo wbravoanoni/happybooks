@@ -115,7 +115,7 @@
 		            <label for="imagenLibro" class="col-sm-3 control-label">Imagen</label>
 		            <div class="col-sm-9"> 
 		              <input id="imagenLibro" class="form-control" name="imagenLibro" type="text" placeholder="" minlength="3" maxlength="20" required="required">
-
+    
 				<input type="radio" id="radioInterno"
 				name="imgExterna" value="0" checked="checked">
 				<label for="radioInterno">&nbsp;Interno</label>
@@ -126,6 +126,15 @@
 
 		            </div>
 		        </div>
+
+		          <div class="form-group">
+		            <label for="nPaginas" class="col-sm-3 control-label">Paginas</label>
+		            <div class="col-sm-9"> 
+		              <input id="nPaginas" class="form-control" name="nPaginas" type="number" placeholder="" min="0" max="2000" required="required">
+		            </div>
+		        </div>
+
+
 
 		        <div class="form-group">
 		            <label for="cboUsuariosLibro" class="col-sm-3 control-label">Usuario</label>
@@ -247,6 +256,13 @@
 				name="uImgExterna" value="1">
 				<label for="radioExterno">&nbsp;Externo</label>
 
+		            </div>
+		        </div>
+
+		         <div class="form-group">
+		            <label for="uNPaginas" class="col-sm-3 control-label">Paginas</label>
+		            <div class="col-sm-9"> 
+		              <input id="uNPaginas" class="form-control" name="uNPaginas" type="number" placeholder="" min="0" max="2000" required="required">
 		            </div>
 		        </div>
 

@@ -39,14 +39,14 @@ function __construct()
 	public function getLibros($id)
 	
 	{
-		$this->db->select('a.nombre,a.autor,a.descripcion,a.puntaje,a.imagen,a.fechaCreacion,CONCAT_WS(" ",b.nombre,b.appaterno) as "usuario"');
+		$this->db->select('a.nombre,,CONCAT_WS(" ",c.nombre,c.apellido) as "autor",a.descripcion,a.puntaje,a.imagen,a.fechaCreacion,paginas,CONCAT_WS(" ",b.nombre,b.appaterno) as "usuario"');
 		$this->db->from('libros a');
 		$this->db->join('persona b','a.usuario=b.idPersona');
+		$this->db->join('autores c','a.autor=c.idAutores');
 		$this->db->where('idLibros',$id);
-		$this->db->where('activo',1);
+		$this->db->where('a.activo',1);
 		$this->db->limit(1);
 
-		
 		$r = $this->db->get();
 		if($r->num_rows()>0){
 			return $r->row_array();
@@ -66,7 +66,7 @@ function __construct()
 
 	public function listarLibros()
 {
-	$this->db->select('a.idLibros,a.llave,a.nombre,CONCAT_WS(" ",d.nombre,d.apellido) as autor,a.resumen,a.descripcion,
+	$this->db->select('a.idLibros,a.llave,a.paginas,a.nombre,CONCAT_WS(" ",d.nombre,d.apellido) as autor,a.resumen,a.descripcion,
 		a.puntaje,a.imagen,a.fechaCreacion,
 		CONCAT_WS(" ",b.nombre,b.appaterno) as "usuario"
 		,c.nombre as "genero",a.activo');
@@ -119,16 +119,18 @@ public function agregarLibros($data){
 
 
 		$campos=array(
-				'nombre'      => $data['nombreLibro'],
-				'autor'       => $data['autorLibro'],
-				'resumen'     => $data['resumenLibro'],
-				'descripcion' => $data['descripcionLibro'],
-				'imagen'	  => $data['imagenLibro'],
-				'usuario'	  => $data['cboUsuariosLibro'],
-				'genero'	  => $data['cboGenero'],
-				'puntaje'	  => $data['myRange'],
-				'imgExterna'  => $data['imgExterna'],
-				'activo'	  => $data['estadoLibro']);
+				'nombre'         => $data['nombreLibro'],
+				'autor'          => $data['autorLibro'],
+				'resumen'        => $data['resumenLibro'],
+				'descripcion'    => $data['descripcionLibro'],
+				'imagen'	     => $data['imagenLibro'],
+				'usuario'	     => $data['cboUsuariosLibro'],
+				'genero'	     => $data['cboGenero'],
+				'puntaje'	  	 => $data['myRange'],
+				'imgExterna'     => $data['imgExterna'],
+				'fechaCreacion'  => $data['fechaCreacion'],
+				'paginas'        => $data['paginas'],
+				'activo'	     => $data['estadoLibro']);
 
 		$this->db->insert('libros',$campos);
 		return $this->db->insert_id();
@@ -197,7 +199,9 @@ public function mActualizarLibros($data){
 				'genero'	  => $data['cboGenero'],
 				'puntaje'	  => $data['myRange'],
 				'imgExterna'  => $data['imgExterna'],
+				'paginas'     => $data['paginas'],
 				'activo'	  => $data['estadoLibro']);
+
 
 		$this->db->where('idLibros', $idLibros);
 		$this->db->update('libros',$libros);

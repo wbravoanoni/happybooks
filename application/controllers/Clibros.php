@@ -46,6 +46,8 @@ public function cListarAutoresLibros(){
 
 public function agregarLibros(){
 
+$today=date("Y-m-d H:i:s");	
+
 $data['nombreLibro']      = $this->input->post('nombreLibro');
 $data['autorLibro']       = $this->input->post('cboautorLibro');
 $data['resumenLibro']     = $this->input->post('resumenLibro');
@@ -54,8 +56,12 @@ $data['imagenLibro']	  = $this->input->post('imagenLibro');
 $data['cboUsuariosLibro'] = $this->input->post('cboUsuariosLibro');
 $data['cboGenero'] 		  = $this->input->post('cboGenero');
 $data['myRange']          = $this->input->post('myRange');
+$data['paginas']          = $this->input->post('nPaginas');
 $data['estadoLibro']      = $this->input->post('estadoLibro');
-$data['imgExterna']      = $this->input->post('imgExterna');
+$data['imgExterna']       = $this->input->post('imgExterna');
+$data['fechaCreacion']    = $today;
+
+
 
 $lastId=$this->Mlibros->agregarLibros($data);
 
@@ -106,6 +112,7 @@ $data['cboUsuariosLibro'] = $this->input->post('aUsuariosLibro');
 $data['cboGenero'] 		  = $this->input->post('uCboGenero');
 $data['myRange']          = $this->input->post('uMyRange');
 $data['estadoLibro']      = $this->input->post('uEstadoLibro');
+$data['paginas']  	      = $this->input->post('uNPaginas');
 $data['imgExterna']       = $this->input->post('uImgExterna');
 
 

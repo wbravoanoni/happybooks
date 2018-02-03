@@ -28,6 +28,16 @@
   </a>
 </p>
 
+<p>Número de paginas: 
+  <?php if(isset($array['paginas'])){
+    echo $array['paginas'];
+}else{
+  echo "Sin Información";
+}?>
+</p>
+
+<br>
+
 <div>
 	<?php echo $array['descripcion']?>
 </div>
@@ -45,7 +55,7 @@
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
-            <img src="<?php echo base_url().$array['imagen']?>" width="300" alt="">
+            <img src="<?php echo base_url().$array['imagen']?>" width="300" draggable="false" alt="">
           </div>
           <div class="sidebar-module">
             <h4>Archives</h4>

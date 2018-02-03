@@ -62,7 +62,7 @@ $('#tablaLibros').DataTable({
 		{"orderable":true,
 	render:function(data, type, row){
 
-return '<a href="#" class="btn btn-block btn-primary btn-sm" style="width:80%;" data-toggle="modal" data-target="#modalActualizarLibro" onclick="selLibros(\''+row.idLibros+'\',\''+row.llave+'\',\''+row.nombre+'\',\''+row.autor+'\',\''+row.resumen+'\',\''+row.descripcion+'\',\''+row.puntaje+'\',\''+row.imagen+'\',\''+row.fechaCreacion+'\',\''+row.usuario+'\',\''+row.genero+'\',\''+row.activo+'\')"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span></a>';
+return '<a href="#" class="btn btn-block btn-primary btn-sm" style="width:80%;" data-toggle="modal" data-target="#modalActualizarLibro" onclick="selLibros(\''+row.idLibros+'\',\''+row.llave+'\',\''+row.nombre+'\',\''+row.autor+'\',\''+row.resumen+'\',\''+row.descripcion+'\',\''+row.puntaje+'\',\''+row.imagen+'\',\''+row.fechaCreacion+'\',\''+row.usuario+'\',\''+row.genero+'\',\''+row.paginas+'\',\''+row.activo+'\')"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span></a>';
 
 	
 	}
@@ -116,7 +116,7 @@ return '<a href="#" class="btn btn-block btn-primary btn-sm" style="width:80%;" 
 "order":[[1, "asc" ]], // Nº de Columna que ordena
 });
 
-selLibros=function(idLibros,llave ,nombre, autor, resumen, descripcion,puntaje,imagen,fechaCreacion,usuario,genero,activo)
+selLibros=function(idLibros,llave ,nombre, autor, resumen, descripcion,puntaje,imagen,fechaCreacion,usuario,genero,paginas,activo)
 
 	{
 
@@ -135,6 +135,9 @@ $("#cajaPuntos").find("div").html(enlaceI);
 		$("#uIdLibro").attr("value",idLibros).hide();
    		$("#uDemo").html(puntaje);
    		$("#uMyRange").attr("value",puntaje);
+   		$("#uNPaginas").attr("value",paginas);
+
+   		
 
 
 		buscarUsuarioLibro(usuario);

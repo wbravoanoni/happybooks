@@ -47,9 +47,9 @@ filas+="<div class='col-sm-6 col-md-4'>";
 filas+="<div class='thumbnail'>";
 
 if(item.imgExterna=0){
-filas+="<img class='imgLibros' src='"+baseurl+item.imagen+"' alt='...''>";
+filas+="<img class='imgLibros' src='"+baseurl+item.imagen+"' alt='...' draggable='false' >";
 }else if(item.imgExterna=1){
-filas+="<img class='imgLibros' src='"+item.imagen+"' alt='...''>";	
+filas+="<img class='imgLibros' src='"+item.imagen+"' alt='' draggable='false' >" ;	
 }
 
 filas+="<div class='caption'>";

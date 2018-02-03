@@ -61,7 +61,10 @@ function formatoFecha($fecha)
 
 	{
 
-	list($anio, $mes, $dia) = explode("-",$fecha); 
+	//Eliminar Hora
+	$fecha=explode(" ",$fecha);
+	
+	list($anio, $mes, $dia) = explode("-",$fecha[0]);
 	$mesTexto=obtenerMes($mes);
 	$cadena=$mesTexto." ".$dia.", ".$anio;
 
