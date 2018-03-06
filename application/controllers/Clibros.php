@@ -48,10 +48,12 @@ public function agregarLibros(){
 
 $today=date("Y-m-d H:i:s");	
 
+$descripcion=$this->input->post('descripcionLibro');
+
 $data['nombreLibro']      = $this->input->post('nombreLibro');
 $data['autorLibro']       = $this->input->post('cboautorLibro');
 $data['resumenLibro']     = $this->input->post('resumenLibro');
-$data['descripcionLibro'] = $this->input->post('descripcionLibro');
+$data['descripcionLibro'] = $this->limpiarTexto($descripcion);
 $data['imagenLibro']	  = $this->input->post('imagenLibro');
 $data['cboUsuariosLibro'] = $this->input->post('cboUsuariosLibro');
 $data['cboGenero'] 		  = $this->input->post('cboGenero');
@@ -101,12 +103,14 @@ public function cListarTodosAutores(){
 
 public function cActualizarLibros(){
 
+$descripcion=$this->input->post('uDescripcionLibro');
+
 $data['idLibros']         = $this->input->post('idLibros');
 $data['llave']            = $this->input->post('key');
 $data['nombreLibro']      = $this->input->post('uNombreLibro');
 $data['autorLibro']       = $this->input->post('uAutorLibro');
 $data['resumenLibro']     = $this->input->post('uResumenLibro');
-$data['descripcionLibro'] = $this->input->post('uDescripcionLibro');
+$data['descripcionLibro'] = $this->limpiarTexto($descripcion);
 $data['imagenLibro']	  = $this->input->post('uImagenLibro');
 $data['cboUsuariosLibro'] = $this->input->post('aUsuariosLibro');
 $data['cboGenero'] 		  = $this->input->post('uCboGenero');
@@ -114,8 +118,6 @@ $data['myRange']          = $this->input->post('uMyRange');
 $data['estadoLibro']      = $this->input->post('uEstadoLibro');
 $data['paginas']  	      = $this->input->post('uNPaginas');
 $data['imgExterna']       = $this->input->post('uImgExterna');
-
-
 
 $prueba=$this->revisaIntegridad($data['idLibros'],$data['llave']);
 
@@ -133,8 +135,6 @@ if($prueba==true){
 }
 }
 
-
-
 public function revisaIntegridad($idLibro,$llave){
 	if(base64_encode($idLibro."-"."cinthia")==$llave){
 	return true;
@@ -142,4 +142,16 @@ public function revisaIntegridad($idLibro,$llave){
 		return false;
 	}
 }
+
+
+public function limpiarTexto($texto){
+$texto  = str_replace("'","",$texto);
+$texto  = str_replace('"','',$texto);
+$texto=trim($texto);
+$texto = eregi_replace("[\n|\r|\n\r]", '', $texto);
+//$texto  = strip_tags($texto);
+//$texto = htmlspecialchars($texto, ENT_QUOTES);
+return $texto;
+}
+
 }

@@ -114,7 +114,7 @@
 		        <div class="form-group">
 		            <label for="imagenLibro" class="col-sm-3 control-label">Imagen</label>
 		            <div class="col-sm-9"> 
-		              <input id="imagenLibro" class="form-control" name="imagenLibro" type="text" placeholder="" minlength="3" maxlength="20" required="required">
+		              <input id="imagenLibro" class="form-control" name="imagenLibro" type="text" placeholder="" minlength="3" maxlength="250" required="required">
     
 				<input type="radio" id="radioInterno"
 				name="imgExterna" value="0" checked="checked">
