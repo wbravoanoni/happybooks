@@ -1,0 +1,12 @@
+# robots.txt
+User-agent: Googlebot
+User-agent: Googlebot-Mobile
+User-agent: MSNBot
+Disallow: /cgi-bin/
+Disallow: /panel/
+Disallow: /gestor/
+Disallow: /mod/
+Disallow: /extra/
+Disallow: /panel/guia/
+Disallow: /*?
+Sitemap: http://happybooks.epizy.com/

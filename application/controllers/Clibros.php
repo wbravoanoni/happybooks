@@ -148,7 +148,7 @@ public function limpiarTexto($texto){
 $texto  = str_replace("'","",$texto);
 $texto  = str_replace('"','',$texto);
 $texto=trim($texto);
-$texto = eregi_replace("[\n|\r|\n\r]", '', $texto);
+//$texto = eregi_replace("[\n|\r|\n\r]", '', $texto);
 //$texto  = strip_tags($texto);
 //$texto = htmlspecialchars($texto, ENT_QUOTES);
 return $texto;

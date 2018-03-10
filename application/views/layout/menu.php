@@ -172,7 +172,7 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
           </ul>
         </li>
-        <li onclick="alert('Pagina temporalmente desactivada')"><a href="#"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+        <li><a href="<?php echo base_url()?>Clogin/seo"><i class="fa fa-book"></i> <span>Configurar SEO</span></a></li>
         <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
