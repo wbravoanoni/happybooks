@@ -5,18 +5,10 @@
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="Robots" content="INDEX, FOLLOW" >
-<meta name="Description" content="Conoce las mejores reseñas de libros"/>
-<meta name="Keywords" content="reseñas libros,libros, happybooks,portal libros"/>
-<meta name="distribution" content="Local"/>
-<meta name="Author" content="Happybooks">
-<meta name="rating" content="General">
-<meta name="language" content="es">
-<meta name="copyright" content="Copyright © 2018 - Todos los derechos reservados a Happybooks.cl" />
-<meta name="Revisit after" content="1 Day" />
-<meta name="Publisher" content="Happybooks 2.0.0">
-<meta name="googlebot" content="index">
+<?php
+echo $seo;
+?>
+
 
 
 
@@ -29,13 +21,7 @@
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88076544-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-88076544-1');
-</script>
 
 <style>
 	footer {

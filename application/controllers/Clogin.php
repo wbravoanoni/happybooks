@@ -191,15 +191,6 @@ public function panel()
 		$this->load->view('layout/footer');
 	}
 
-	public function seo()
-
-	{
-		$this->load->view('layout/header');
-		$this->load->view('layout/menu');
-		$this->load->view('Panel/seo/seo_view');
-		$this->load->view('layout/footer');
-	}
-
 
 }
 
