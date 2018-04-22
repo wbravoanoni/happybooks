@@ -117,5 +117,14 @@ return "Diciembre";
 }
 }
 
+function limpiaTexto($input){
+// Permite <p> y <a>
+//echo strip_tags($text, '<br><p><a>');
+
+return strip_tags($input);
+}
+
+
+
 
 ?>

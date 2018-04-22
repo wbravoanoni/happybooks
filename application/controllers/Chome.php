@@ -43,13 +43,12 @@ if($_GET['id']){
 	
 $id=$_GET['id'];
 
-$array=$this->Mlibros->getLibros($id);
+$data1["array"]=$this->Mlibros->getLibros($id);
+$data2["seo"]=$this->listarSeo();
 
-$data=array("array"=>$array);
-
-$this->load->view('Home/layout/head');
+$this->load->view('Home/layout/head',$data2);
 $this->load->view('Home/layout/navbar');
-$this->load->view('Home/interno',$data);
+$this->load->view('Home/interno',$data1);
 $this->load->view('Home/layout/footer');	
 
 }

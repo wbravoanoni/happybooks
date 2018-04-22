@@ -71,6 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 
+/*
 $entorno="local";
 
 if($entorno=="local"){
@@ -78,7 +79,7 @@ if($entorno=="local"){
 	$hostname = "localhost";
 	$username = "epiz_21179746";
 	$password = "yRkcECkZCotP";
-	$database = "u217119419_happy";
+	$database = "epiz_21179746_happy";
 
 }elseif($entorno=="remoto"){
 
@@ -90,16 +91,47 @@ if($entorno=="local"){
 }else{
 	exit;
 }
+*/
 
+
+if($_SERVER["REMOTE_ADDR"]=="127.0.0.1"){
 $active_group = 'default';
+}elseif($_SERVER["REMOTE_ADDR"]=="181.203.99.35"){
+$active_group = 'produccion';
+}else{
+	exit;
+}
+
 $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => $hostname,
-	'username' => $username,
-	'password' => $password,
-	'database' => $database,
+	'hostname' => "localhost",
+	'username' => "epiz_21179746",
+	'password' => "yRkcECkZCotP",
+	'database' => "epiz_21179746_happy",
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
+$db['produccion'] = array(
+	'dsn'	=> '',
+	'hostname' => "sql212.epizy.com",
+	'username' => "epiz_21179746",
+	'password' => "yRkcECkZCotP",
+	'database' => "epiz_21179746_happy",
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

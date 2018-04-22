@@ -8,6 +8,7 @@ function __construct()
 {
 	parent::__construct();
 	$this->load->model('Seo_model');
+	$this->load->helper('libros_helper');
 }
 
 	/**
@@ -43,16 +44,19 @@ function __construct()
 
 public function actualizarSeoController(){
 
-$copyright     = $this->input->post('copyright');
-$Author        = $this->input->post('Author');
-$Publisher     = $this->input->post('Publisher');
+$copyright     = limpiaTexto($this->input->post('copyright'));
+$Author        = limpiaTexto($this->input->post('Author'));
+$Publisher     = limpiaTexto($this->input->post('Publisher'));
 $rating        = $this->input->post('rating');
 $distribution  = $this->input->post('distribution');
 $Robots        = $this->input->post('Robots');
-$language  	   = $this->input->post('language');
+$language  	   = limpiaTexto($this->input->post('language'));
 $Revisit_after = $this->input->post('Revisit_after');
-$analytic      = $this->input->post('analytic');
-$Keywords      = $this->input->post('Keywords');
+$analytic      = limpiaTexto($this->input->post('analytic'));
+$Keywords      = limpiaTexto($this->input->post('Keywords'));
+
+
+
 
 $array=[
 	"copyright"     => $copyright,
@@ -66,16 +70,7 @@ $array=[
 	"analytic"      => $analytic,
 	"Keywords"      => $Keywords
 ];
-/*
-$nombre=["copyright","Author","Publisher","rating","distribution"
-,"Robots","language","Revisit_after","analytic","Keywords"];
 
-$descripcion=[$copyright,$Author,$Publisher,$rating,$distribution,
-$Robots,$language,$Revisit_after,$analytic,$Keywords];
-*/
-
-//print_r($array);
-//exit;
 foreach ($array as $nombre => $descripcion) {
 $resultado=$this->Seo_model->actualizaSeoModel($nombre,$descripcion);
 }
@@ -85,18 +80,6 @@ $resultado=$this->Seo_model->actualizaSeoModel($nombre,$descripcion);
 
 
 }
-
-public function prueba(){
-$array=["pais"=>"Chile"];
-
-
-foreach ($array as $key => $value) {
-	echo "{$key}-{$value}";
-}
-
-
-}
-
 }
 
 
