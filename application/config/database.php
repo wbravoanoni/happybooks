@@ -71,35 +71,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 
-/*
-$entorno="local";
+if($_SERVER['HTTP_HOST']=='happybooks.epizy.com'){
 
-if($entorno=="local"){
-
-	$hostname = "localhost";
-	$username = "epiz_21179746";
-	$password = "yRkcECkZCotP";
-	$database = "epiz_21179746_happy";
-
-}elseif($entorno=="remoto"){
-
-	$hostname = "sql212.epizy.com";
-	$username = "epiz_21179746";
-	$password = "yRkcECkZCotP";
-	$database = "epiz_21179746_happy";
-
-}else{
-	exit;
-}
-*/
-
-
-if($_SERVER["REMOTE_ADDR"]=="127.0.0.1"){
-$active_group = 'default';
-}elseif($_SERVER["REMOTE_ADDR"]=="181.203.99.35"){
 $active_group = 'produccion';
+
+}elseif($_SERVER['HTTP_HOST']=='127.0.0.1'){
+
+$active_group = 'default';
+
 }else{
-	exit;
+exit;
 }
 
 $query_builder = TRUE;
