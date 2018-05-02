@@ -218,4 +218,11 @@ $correo = $this->input->post('data');
 	echo json_encode($this->mpersona->existeCorreoModel($datos));
 }
 
+public function verPerfil(){
+	$this->load->view('layout/header');
+	$this->load->view('layout/menu');
+	$this->load->view("Panel/usuarios/verPerfil_view");
+	$this->load->view('layout/footer');
+}
+
 }
