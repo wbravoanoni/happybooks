@@ -285,7 +285,7 @@ if(validarEnvio()==true){
 //Actualizar Usuarios
 
 
-$("#actualizarUsuarios").submit(function(event)
+$("#actualizar_view").submit(function(event)
 
 {
 event.preventDefault();
@@ -294,9 +294,9 @@ event.preventDefault();
 		beforeSend:function(){
 		//$("#caja").show();
 		},
-			url:$("#actualizarUsuarios").attr("action"),
-			type:$("#actualizarUsuarios").attr("method"),
-			data:$("#actualizarUsuarios").serialize(),
+			url:$("#actualizar_view").attr("action"),
+			type:$("#actualizar_view").attr("method"),
+			data:$("#actualizar_view").serialize(),
 			success:function(respuesta)
 		{
 			if(respuesta!=2){

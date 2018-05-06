@@ -18,7 +18,7 @@ $contrasena = $data['pass'];
 if($this->existeCorreo($correo)==1)
 
   {
-	$this->db->select('a.idUsuario,a.correo,a.clave,b.nombre,b.appaterno,b.apmaterno,c.nombreTipo,
+	$this->db->select('a.idUsuario,a.correo,a.clave,b.foto,b.nombre,b.appaterno,b.apmaterno,c.nombreTipo,
 		DATE_FORMAT(fechaIngreso, "%Y") as anio,
 		case DATE_FORMAT(fechaIngreso, "%M")  
 		when "January" then "Ene"
@@ -54,7 +54,8 @@ if($resultado->num_rows()==1){
 		's_idUsuario'   => $r->idUsuario,
 		's_usuario'     => $r->nombre." ".$r->appaterno,
 		's_profesion'   => $r->nombreTipo,
-		's_ingreso'     => $r->mes.". ".$r->anio
+		's_ingreso'     => $r->mes.". ".$r->anio,
+		's_foto'        => $r->foto
 		);
 
 		$this->session->set_userdata($s_usuario);

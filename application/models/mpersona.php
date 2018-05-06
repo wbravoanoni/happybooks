@@ -258,8 +258,82 @@ return false;
 
 }
 
+public function cargaPerfilModel($datos){
+
+$id=$datos['id'];
+
+$this->db->select('a.nombre,a.appaterno,a.apmaterno,a.idPais,a.idCiudad,a.fecnac,a.foto,b.correo,b.tipo');
+$this->db->from('persona a');
+$this->db->join('usuario b','b.idPersona=a.idPersona');
+$this->db->where('a.idPersona',$id);
+$query=$this->db->get();
+
+if($query->num_rows()>0){
+
+return $query->result();
+
+}else{
+return false;
+}
 
 
+}
+
+
+	public function actualizarPersonaView($datos){
+
+ 	$idPersona = $datos['idUsuario'];
+
+	date_default_timezone_set ('America/Santiago');
+	$fecha 	   = date("Y-m-d H:i:s");
+
+
+ 	if(isset($datos['pass1'])){
+
+ 	$usuario=array(
+	'correo'    		=> $datos['email'],
+	'clave'     		=> $datos['pass1'],
+	'tipo'      		=> $datos['tipo'],
+	'fechaActualizacion'=> $fecha
+	);
+
+ 	}else{
+
+ 	$usuario=array(
+	'correo'    		=> $datos['email'],
+	'tipo'      		=> $datos['tipo'],
+	'fechaActualizacion'=> $fecha,
+	);	
+
+ 	}
+
+
+$persona=array(
+	'nombre'    => $datos['nombre'],
+	'appaterno' => $datos['appaterno'],
+	'apmaterno' => $datos['apmaterno'],
+	'idPais'    => $datos['pais'],
+	'idCiudad'  => $datos['ciudad'],
+	'foto'      => $datos['img_view'],
+	'fecnac'    => $datos['nacimiento']
+	);
+
+
+$this->db->where('idPersona', $idPersona);
+$this->db->update('persona',$persona);
+
+$this->db->where('idPersona', $idPersona);
+$this->db->update('usuario',$usuario);
+
+/* Actualizar Foto en session*/
+$s_foto=array(
+'s_foto'   => $datos['img_view']
+);
+$this->session->set_userdata($s_foto);
+echo "correcto";
+
+redirect(base_url()."/Cusuarios/verPerfil");
+	}
 
 
 

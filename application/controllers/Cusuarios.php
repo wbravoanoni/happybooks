@@ -109,7 +109,7 @@ $idUsuario = $this->input->post('mhdnIdPersona');
 $pass      = $this->input->post('utxtpass');
 
 if($pass!="Nada"){
-$datos['utxtpass']       = $pass;
+$datos['utxtpass']       = sha1($pass);
 }
 
 $datos['idUsuario']      = $idUsuario;
@@ -224,5 +224,110 @@ public function verPerfil(){
 	$this->load->view("Panel/usuarios/verPerfil_view");
 	$this->load->view('layout/footer');
 }
+
+public function cargarPerfilController(){
+
+$id=$this->session->userdata('s_idUsuario');
+
+$datos['id']=$id;
+
+echo json_encode($this->mpersona->cargaPerfilModel($datos));
+
+}
+
+
+public function actualizarUsuarioView(){
+
+$idUsuario  = $this->session->userdata('s_idUsuario');
+	/* --- Subir imagen ---*/
+
+$ruta    = $_SERVER['DOCUMENT_ROOT'].'/happybooks_v2/imagenes/usuarios/';
+$carpeta = $idUsuario;
+$final   = $ruta.$carpeta;
+
+$valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp'); // valid extensions
+
+
+
+if(!is_dir($final)){
+
+$crear=mkdir($ruta.$carpeta,0777,true);	
+
+if($crear){
+
+}else{
+echo "a ocurrido un error al crear el directorio";
+}
+}
+
+opendir($final);
+
+$prueba=$_FILES['mi-archivo']['name'];
+
+$ext = strtolower(pathinfo($prueba, PATHINFO_EXTENSION));
+if(in_array($ext, $valid_extensions)) 
+ {   
+
+ $extension = explode(".",$prueba);
+
+$_FILES['mi-archivo']['name']="perfil.".$extension[1];
+
+$destino= $final."/".$_FILES['mi-archivo']['name'];
+
+copy($_FILES['mi-archivo']['tmp_name'],$destino);	
+
+ }else{
+ 	exit;
+ }
+
+
+
+/*
+echo "<img src=".base_url()."imagenes/usuarios/$carpeta/perfil.".$extension[1]." \">";
+*/
+/*
+echo $_FILES['mi-archivo']['name']."<br>";
+echo $_FILES['mi-archivo']['size']."<br>";
+echo $_FILES['mi-archivo']['type']."<br>";
+echo $_FILES['mi-archivo']['type']; 
+*/
+
+$rutabd=base_url()."imagenes/usuarios/$carpeta/perfil.".$extension[1];
+
+$nombre     = $this->input->post('nombre_view');
+$appaterno  = $this->input->post('appaterno_view');
+$apmaterno  = $this->input->post('apmaterno_view');
+$nacimiento = $this->input->post('nacimiento_view');
+$pais    	= $this->input->post('pais_view');
+$ciudad     = $this->input->post('ciudad_view');
+$email      = $this->input->post('email_view');
+$pass1      = $this->input->post('pass_view');
+$pass2      = $this->input->post('pass2_view');
+$tipo       = $this->input->post('tipo_view');
+$img_view	= $rutabd;
+
+
+if($pass1!=$pass2){
+	echo "contrasena";
+	exit;
+}elseif($pass1!="****"){
+$datos['pass1']          = sha1($pass1);
+}
+
+$datos['idUsuario']      = $idUsuario;
+$datos['nombre']         = $nombre;
+$datos['appaterno']  	 = $appaterno;
+$datos['apmaterno']  	 = $apmaterno;
+$datos['nacimiento']     = $nacimiento;
+$datos['pais']    		 = $pais;
+$datos['ciudad']   	     = $ciudad;
+$datos['email']    	     = $email;
+$datos['tipo']       	 = $tipo; 
+$datos['img_view']       = $img_view; 
+
+$this->mpersona->actualizarPersonaView($datos);
+
+}
+
 
 }

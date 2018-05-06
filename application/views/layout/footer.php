@@ -80,8 +80,15 @@ if($this->uri->segment(1)=='cpersonas'){?>
 ?>
 
 <?php
- if($this->uri->segment(1)=='Cusuarios'){?>
+ if($this->uri->segment(1)=='Cusuarios' && $this->uri->segment(2)==''){?>
    <script src="<?php echo base_url()?>/js/usuarios.js"></script>
+<?php
+}
+?>
+
+<?php
+ if($this->uri->segment(1)=='Cusuarios' && $this->uri->segment(2)=='verPerfil'){?>
+   <script src="<?php echo base_url()?>/js/usuarios_perfil.js"></script>
 <?php
 }
 ?>
