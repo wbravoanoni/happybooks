@@ -92,7 +92,7 @@ $.each(c,function(i,item){
 	$("#appaterno_view").attr("value",item.appaterno);
 	$("#apmaterno_view").attr("value",item.apmaterno);
 	$("#nacimiento_view").attr("value",item.fecnac);
-	$("#img_view").attr("src",item.foto);
+	$("#img_view").attr("src",baseurl+item.foto);
 	$("#email_view").attr("value",item.correo);
 	$("#pass_view").attr("value","****");
 	$("#pass2_view").attr("value","****");

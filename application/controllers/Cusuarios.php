@@ -292,7 +292,7 @@ echo $_FILES['mi-archivo']['type']."<br>";
 echo $_FILES['mi-archivo']['type']; 
 */
 
-$rutabd=base_url()."imagenes/usuarios/$carpeta/perfil.".$extension[1];
+$rutabd="imagenes/usuarios/$carpeta/perfil.".$extension[1];
 
 $nombre     = $this->input->post('nombre_view');
 $appaterno  = $this->input->post('appaterno_view');

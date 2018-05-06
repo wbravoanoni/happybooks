@@ -265,7 +265,7 @@ if(!$this->session->userdata('s_idUsuario')){
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo $this->session->userdata('s_foto');?>" class="user-image" alt="User Image">
+              <img src="<?php echo base_url().$this->session->userdata('s_foto');?>" class="user-image" alt="User Image">
               <span class="hidden-xs"><?php echo $this->session->userdata('s_usuario');?></span>
 
 
@@ -273,7 +273,7 @@ if(!$this->session->userdata('s_idUsuario')){
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo $this->session->userdata('s_foto');?>" class="img-circle" alt="User Image">
+                <img src="<?php echo base_url().$this->session->userdata('s_foto');?>" class="img-circle" alt="User Image">
 
                 <p>
             <?php echo $this->session->userdata('s_usuario');?> - <?php echo $this->session->userdata('s_profesion');?>
