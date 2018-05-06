@@ -277,6 +277,7 @@ $destino= $final."/".$_FILES['mi-archivo']['name'];
 copy($_FILES['mi-archivo']['tmp_name'],$destino);	
 
  }else{
+ 	redirect(base_url()."Cusuarios/verPerfil?imagen=error");
  	exit;
  }
 

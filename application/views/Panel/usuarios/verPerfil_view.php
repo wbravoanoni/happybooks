@@ -32,7 +32,21 @@
 
 </style>
 
+<?php
+if(isset($_GET["imagen"])){
+	if($_GET["imagen"]=="error"){
+echo "
+<div class=\"alert alert-danger\" role=\"alert\">
+  <span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>
+  <span class=\"sr-only\">Error:</span>
+  Formato de imagen incorrecto
+</div>
+";
+	}
+}
+?>
 <div class="container">
+
 	<form action="<?php echo base_url()?>Cusuarios/actualizarUsuarioView" id="actualizar_view" method="POST" enctype="multipart/form-data">
 		<div class="row">
 			<h1 class="text-center">Modificar perfil</h1>
