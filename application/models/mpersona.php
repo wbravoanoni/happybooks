@@ -332,7 +332,7 @@ $s_foto=array(
 $this->session->set_userdata($s_foto);
 echo "correcto";
 
-redirect(base_url()."/Cusuarios/verPerfil");
+redirect(base_url()."Cusuarios/verPerfil");
 	}
 
 
