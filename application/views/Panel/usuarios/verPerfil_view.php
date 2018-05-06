@@ -55,7 +55,7 @@ echo "
 					<img id="img_view" name="img_view" class="img-fluid" width="200" alt="">
 
 					<span class="mi-archivo">
-						<input type="file" name="mi-archivo" id="mi-archivo">
+						<input type="file" name="mi-archivo" id="mi-archivo" onchange="readURL(this);">
 					</span>	
 					<label class="btn btn-default btn-block" for="mi-archivo">
 						<span>Subir nueva foto</span>
