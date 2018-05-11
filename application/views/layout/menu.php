@@ -80,13 +80,16 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
+            <span>Configuración</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
+                <span class="pull-right-container">
+                      <small class="label pull-right bg-green">new</small>
+                </span>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li onclick="alert('Pagina temporalmente desactivada')"><a href="#"><i class="fa fa-circle-o"></i> General</a></li>
+            <li><a href="<?php echo base_url()?>Cconfig/pais"><i class="fa fa-circle-o"></i> General</a></li>
             <li onclick="alert('Pagina temporalmente desactivada')"><a href="#"><i class="fa fa-circle-o"></i> Icons</a></li>
             <li onclick="alert('Pagina temporalmente desactivada')"><a href="#"><i class="fa fa-circle-o"></i> Buttons</a></li>
             <li onclick="alert('Pagina temporalmente desactivada')"><a href="#"><i class="fa fa-circle-o"></i> Sliders</a></li>

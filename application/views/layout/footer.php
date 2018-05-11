@@ -100,7 +100,33 @@ if($this->uri->segment(1)=='cpersonas'){?>
 }
 ?>
 
+<?php
+ if($this->uri->segment(1)=='Cconfig' && $this->uri->segment(2)=='pais'){?>
+   <script src="<?php echo base_url()?>js/config/config_paises.js"></script>
+<?php
+}
+?>
 
+<?php
+ if($this->uri->segment(1)=='Cconfig' && $this->uri->segment(2)=='ciudades'){?>
+   <script src="<?php echo base_url()?>js/config/config_ciudades.js"></script>
+<?php
+}
+?>
+
+<?php
+ if($this->uri->segment(1)=='Cconfig' && $this->uri->segment(2)=='autores'){?>
+   <script src="<?php echo base_url()?>js/config/config_autores.js"></script>
+<?php
+}
+?>
+
+<?php
+ if($this->uri->segment(1)=='Cconfig' && $this->uri->segment(2)=='genero'){?>
+   <script src="<?php echo base_url()?>js/config/config_genero.js"></script>
+<?php
+}
+?>
 
 </body>
 </html>
