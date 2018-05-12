@@ -62,7 +62,11 @@ $('#tablaLibros').DataTable({
 		{"orderable":true,
 	render:function(data, type, row){
 
-return '<a href="#" class="btn btn-block btn-primary btn-sm" style="width:80%;" data-toggle="modal" data-target="#modalActualizarLibro" onclick="selLibros(\''+row.idLibros+'\',\''+row.llave+'\',\''+row.nombre+'\',\''+row.autor+'\',\''+row.resumen+'\',\''+row.descripcion+'\',\''+row.puntaje+'\',\''+row.imagen+'\',\''+row.fechaCreacion+'\',\''+row.usuario+'\',\''+row.genero+'\',\''+row.paginas+'\',\''+row.activo+'\')"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span></a>';
+		var nombre      = row.nombre.replace(/\r\n/g,' ');
+		var resumen     = row.resumen.replace(/\r\n/g,' ');
+		var descripcion = row.descripcion.replace(/\r\n/g,' ');
+
+return '<a href="#" class="btn btn-block btn-primary btn-sm" style="width:80%;" data-toggle="modal" data-target="#modalActualizarLibro" onclick="selLibros(\''+row.idLibros+'\',\''+row.llave+'\',\''+nombre+'\',\''+row.autor+'\',\''+resumen+'\',\''+descripcion+'\',\''+row.puntaje+'\',\''+row.imagen+'\',\''+row.fechaCreacion+'\',\''+row.usuario+'\',\''+row.genero+'\',\''+row.paginas+'\',\''+row.activo+'\')"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span></a>';
 
 	
 	}

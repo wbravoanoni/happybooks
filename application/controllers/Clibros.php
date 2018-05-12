@@ -103,13 +103,15 @@ public function cListarTodosAutores(){
 
 public function cActualizarLibros(){
 
-$descripcion=$this->input->post('uDescripcionLibro');
+$nombreLibro  = $this->input->post('uNombreLibro');
+$resumenLibro = $this->input->post('uResumenLibro');
+$descripcion  = $this->input->post('uDescripcionLibro');
 
 $data['idLibros']         = $this->input->post('idLibros');
 $data['llave']            = $this->input->post('key');
-$data['nombreLibro']      = $this->input->post('uNombreLibro');
+$data['nombreLibro']      = $this->limpiarTexto($nombreLibro);
 $data['autorLibro']       = $this->input->post('uAutorLibro');
-$data['resumenLibro']     = $this->input->post('uResumenLibro');
+$data['resumenLibro']     = $this->limpiarTexto($resumenLibro);
 $data['descripcionLibro'] = $this->limpiarTexto($descripcion);
 $data['imagenLibro']	  = $this->input->post('uImagenLibro');
 $data['cboUsuariosLibro'] = $this->input->post('aUsuariosLibro');
@@ -145,9 +147,13 @@ public function revisaIntegridad($idLibro,$llave){
 
 
 public function limpiarTexto($texto){
+
+$texto  = nl2br($texto);
+$texto  = eregi_replace("[\n|\r|\n\r]", ' ', $texto);	
 $texto  = str_replace("'","",$texto);
 $texto  = str_replace('"','',$texto);
-$texto=trim($texto);
+$texto  = trim($texto);
+$texto  = strip_tags($texto, '<br><h1><h2><h3>');
 //$texto = eregi_replace("[\n|\r|\n\r]", '', $texto);
 //$texto  = strip_tags($texto);
 //$texto = htmlspecialchars($texto, ENT_QUOTES);
