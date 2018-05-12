@@ -149,7 +149,7 @@ public function revisaIntegridad($idLibro,$llave){
 public function limpiarTexto($texto){
 
 $texto  = nl2br($texto);
-$texto  = eregi_replace("[\n|\r|\n\r]", ' ', $texto);	
+$texto  = preg_replace("[\n|\r|\n\r]", ' ', $texto);	
 $texto  = str_replace("'","",$texto);
 $texto  = str_replace('"','',$texto);
 $texto  = trim($texto);
