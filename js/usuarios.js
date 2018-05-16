@@ -121,7 +121,7 @@ $.post(baseurl+"Cusuarios/getUsuariosPaisesController",
 	function(data){
 var c = JSON.parse(data);
 $.each(c,function(i,item){
-	$('#cboPaises').append('<option value='+item.idPais+'>'+item.nombrePais+'</option>');
+	$('#uComboPaisesConfig').append('<option value='+item.idPais+'>'+item.nombrePais+'</option>');
 });
 });
 

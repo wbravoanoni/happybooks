@@ -300,3 +300,5 @@ if(!$this->session->userdata('s_idUsuario')){
       </div>
     </nav>
   </header>
+
+    <div class="" id="popCarga"></div>
