@@ -136,7 +136,7 @@ $this->db->join('ciudades b', 'a.idPais=b.idPais');
 $this->db->where("a.activo",1);
 $this->db->group_by("b.idPais"); 
 $this->db->having('total>0'); 
-$this->db->order_by('nombrePais', 'ASC');
+$this->db->order_by('a.nombrePais', 'ASC');
 
 
 		//$s = $this->db->order_by('nombrePais', 'ASC')->get_where('paises',array('activo'=>1));

@@ -47,7 +47,7 @@ $param['cboCiudades']   = $this->input->post('cboCiudades');
 
 //usuario
 $param2['mtxtEmail']    = $this->input->post('mtxtEmail');
-$param2['txtpass']      = $this->input->post('txtpass');
+$param2['txtpass']      = sha1($this->input->post('txtpass'));
 $param2['cboTipo']    	= $this->input->post('cboTipo');
 $param2['cboEstado']    = $this->input->post('cboEstado');
 
@@ -86,7 +86,7 @@ $idUsuario = $this->input->post('mhdnIdPersona');
 $pass      = $this->input->post('utxtpass');
 
 if($pass!="Nada"){
-$datos['utxtpass']       = $pass;
+$datos['utxtpass']       = sha1($pass);
 }
 
 $datos['idUsuario']      = $idUsuario;
@@ -99,6 +99,7 @@ $datos['cboCiudades2']   = $this->input->post('cboCiudades2');
 $datos['utxtEmail']      = $correo;
 $datos['ucboTipo']       = $this->input->post('ucboTipo');
 $datos['ucboEstado']     = $this->input->post('ucboEstado');
+
 
 $this->mpersona->actualizarPersona($datos);
 

@@ -50,12 +50,14 @@ if($resultado->num_rows()==1){
 
 	$r=$resultado->row();
 
+	$imagen=$r->foto?$r->foto:"imagenes/panel/sin_imagen.jpg";
+
 		$s_usuario=array(
 		's_idUsuario'   => $r->idUsuario,
 		's_usuario'     => $r->nombre." ".$r->appaterno,
 		's_profesion'   => $r->nombreTipo,
 		's_ingreso'     => $r->mes.". ".$r->anio,
-		's_foto'        => $r->foto
+		's_foto'        => $imagen
 		);
 
 		$this->session->set_userdata($s_usuario);

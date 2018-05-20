@@ -219,7 +219,7 @@ $.each(c,function(i,item){
 
 
 //Agregar Libros
-$("#agregarPaisesConfig").submit(function(event)
+$("#formularioAgregarLibro").submit(function(event)
 
 {
 event.preventDefault();
@@ -228,9 +228,9 @@ event.preventDefault();
 		beforeSend:function(){
 		//$("#caja").show();
 		},
-			url:$("#agregarPaisesConfig").attr("action"),
-			type:$("#agregarPaisesConfig").attr("method"),
-			data:$("#agregarPaisesConfig").serialize(),
+			url:$("#formularioAgregarLibro").attr("action"),
+			type:$("#formularioAgregarLibro").attr("method"),
+			data:$("#formularioAgregarLibro").serialize(),
 			success:function(respuesta)
 		{
 			if(respuesta!=2){

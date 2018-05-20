@@ -121,7 +121,7 @@ $.post(baseurl+"Cusuarios/getUsuariosPaisesController",
 	function(data){
 var c = JSON.parse(data);
 $.each(c,function(i,item){
-	$('#uComboPaisesConfig').append('<option value='+item.idPais+'>'+item.nombrePais+'</option>');
+	$('#cboPaises').append('<option value='+item.idPais+'>'+item.nombrePais+'</option>');
 });
 });
 
@@ -285,7 +285,7 @@ if(validarEnvio()==true){
 //Actualizar Usuarios
 
 
-$("#actualizar_view").submit(function(event)
+$("#actualizarUsuarios").submit(function(event)
 
 {
 event.preventDefault();
@@ -294,9 +294,9 @@ event.preventDefault();
 		beforeSend:function(){
 		//$("#caja").show();
 		},
-			url:$("#actualizar_view").attr("action"),
-			type:$("#actualizar_view").attr("method"),
-			data:$("#actualizar_view").serialize(),
+			url:$("#actualizarUsuarios").attr("action"),
+			type:$("#actualizarUsuarios").attr("method"),
+			data:$("#actualizarUsuarios").serialize(),
 			success:function(respuesta)
 		{
 			if(respuesta!=2){
@@ -324,9 +324,7 @@ event.preventDefault();
 
 /*
 $("#mbtnEliminarUsuario").click(function(){
-
 $('#emailEliminar').val("Hola");
-
 });
 */
 enviaCorreo=function(email)
@@ -366,23 +364,17 @@ event.preventDefault();
 });
 /*
 $('#mtxtEmail').keyup(function(){
-
 	data=$('#mtxtEmail').val();
-
 	console.log("Presiono");
-
 //rellenar combo Tipo Actualizar
 $.post(baseurl+"Cusuarios/existeCorreoController2",
 	{
 		data:data
 	},
-
 		function(data){
 		var c = JSON.parse(data);
 		$.each(c,function(i,item)
-
 		{
-
 		if(item.correo)
 			{
 		console.log("Existe Correo");
@@ -391,13 +383,9 @@ $.post(baseurl+"Cusuarios/existeCorreoController2",
 			{
 			console.log("No Existe Correo");
 			}
-
 		});
-
 	});
-
 });
-
 /*=============================================
 =            Validar Nombre 	            =
 =============================================*/
@@ -1357,8 +1345,3 @@ $('#ucboEstado').focusout(function(){
 
 
 /*================= End of Section Validar Actualizaciones    =================*/
-
-
-
-
-
